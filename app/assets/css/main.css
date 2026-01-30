@@ -1,0 +1,11 @@
+@import "normalize.css";
+
+:root {
+    --accent-color: darkgreen;
+    --focus-visible-color: lightskyblue;
+    --error-color: indianred;
+
+    --layout-width: 1440px;
+    --layout-margin: 0 1.5rem;
+}
+

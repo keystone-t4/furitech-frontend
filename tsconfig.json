@@ -1,0 +1,21 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "./.nuxt/tsconfig.app.json"
+    },
+    {
+      "path": "./.nuxt/tsconfig.server.json"
+    },
+    {
+      "path": "./.nuxt/tsconfig.shared.json"
+    },
+    {
+      "path": "./.nuxt/tsconfig.node.json"
+    }
+  ],
+  "compilerOptions": {
+    "types": ["node", "@nuxt/types", "@nuxtjs/i18n", "vue"],
+    "strict": true //TODO: почему у меня проект собирается через `npm run build`, если я ничего не типизировал???
+  }
+}
