@@ -25,4 +25,9 @@ const head = useLocaleHead()
   flex-direction: column;
   min-height: 100dvh;
 }
+
+.body {
+  font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  font-weight: 400;
+}
 </style>

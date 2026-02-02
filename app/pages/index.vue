@@ -111,7 +111,6 @@ const blockComponentMap: Record<string, any> = {
 
 <template>
   <section class="home">
-    <!-- Hero -->
     <div v-if="heroSrc" class="home__hero">
       <img class="home__hero-img" :src="heroSrc" :alt="heroAlt" />
     </div>
@@ -126,7 +125,6 @@ const blockComponentMap: Record<string, any> = {
           <p v-if="subTitle" class="home__subtitle">{{ subTitle }}</p>
         </header>
 
-        <!-- Dynamic blocks -->
         <div class="home__blocks">
           <template v-for="block in blocks" :key="`${block.__component ?? 'unknown'}:${block.id ?? Math.random()}`">
             <component
@@ -134,7 +132,6 @@ const blockComponentMap: Record<string, any> = {
                 :is="blockComponentMap[block.__component]"
                 :block="block"
             />
-            <!-- неизвестные блоки просто игнорируем -->
           </template>
         </div>
 
