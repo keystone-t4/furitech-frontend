@@ -31,7 +31,7 @@ const copyright =
 <template>
   <footer v-if="copyright" class="footer">
     <div class="footer__inner block">
-      <hr class="footer__line"/>
+      <hr class="footer__line line"/>
       <p class="footer__copyright">{{ copyright }}</p>
     </div>
   </footer>
@@ -49,13 +49,6 @@ const copyright =
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-
-  &__line {
-    width: 100%;
-    border: 1px solid rgb(226, 226, 226);
-    border-bottom: 0;
-    margin: 2rem 0;
   }
 }
 </style>

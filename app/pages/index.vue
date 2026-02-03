@@ -95,11 +95,6 @@ const heroSrc = computed(() => {
   return strapiMediaUrl(url)
 })
 
-const heroAlt = computed(() => {
-  const h = hero.value
-  return (h?.alternativeText || h?.caption || title.value || '').toString()
-})
-
 const blocks = computed(() => data.value?.Block ?? [])
 
 const blockComponentMap: Record<string, any> = {
@@ -137,11 +132,13 @@ const blockComponentMap: Record<string, any> = {
 
 <style scoped lang="scss">
 .home {
+  padding-top: 96px;
   width: 100%;
 
   &__hero {
     height: 100dvh;
     max-height: 1152px;
+    min-height: fit-content;
     width: 100%;
     max-width: 2064px;
     margin: 0 auto;
@@ -159,7 +156,12 @@ const blockComponentMap: Record<string, any> = {
       background-position: 65%;
     }
   }
+  &__hero .block {
+    width: 100%;
+    min-height: fit-content;
+  }
   &__hero-text {
+    min-height: fit-content;
     color: white;
     padding-left: 30px;
     border-left: 1.5px solid white;
@@ -168,6 +170,8 @@ const blockComponentMap: Record<string, any> = {
     }
   }
   &__hero-title {
+    min-height: fit-content;
+
     font-family: 'ArchivoBlack', 'Arial', 'sans-serif';
     font-size: 56px;
     max-width: 750px;
@@ -185,6 +189,8 @@ const blockComponentMap: Record<string, any> = {
     }
   }
   &__subtitle {
+    min-height: fit-content;
+
     opacity: 0.8;
     margin-top: 8px;
     font-size: 22px;
@@ -200,10 +206,9 @@ const blockComponentMap: Record<string, any> = {
   }
 
   &__blocks {
-    width: fit-content;
-    margin: 0 auto;
+    width: 100%;
     display: grid;
-    gap: 24px;
+    justify-content: center;
   }
 }
 </style>

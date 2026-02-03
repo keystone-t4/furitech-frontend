@@ -46,11 +46,12 @@ function renderMd(raw?: string | null) {
 </script>
 
 <template>
-  <section class="block block--image-list ">
-    <h2 v-if="block.Title" class="block__title">{{ block.Title }}</h2>
+  <section class="image-list-content block block--image-list ">
+    <h2 v-if="block.Title" class="image-list-content__title title">{{ block.Title }}</h2>
+    <hr class="image-list-content__line line"/>
 
-    <div v-if="block.Items?.length" class="items">
-      <article v-for="item in block.Items" :key="item.id" class="item">
+    <div v-if="block.Items?.length" class="image-list-content__items">
+      <article v-for="item in block.Items" :key="item.id" class="image-list-content__item item">
         <img
             v-if="item.Image?.url"
             class="item__img"
@@ -66,10 +67,14 @@ function renderMd(raw?: string | null) {
 </template>
 
 <style scoped>
-.block__title {
+.image-list-content {
+  padding: 2rem 0;
+}
+
+.image-list-content__title {
   margin-bottom: 12px;
 }
-.items {
+.image-list-content__items {
   display: grid;
   gap: 16px;
 }

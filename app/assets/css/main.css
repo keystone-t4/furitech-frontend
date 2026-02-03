@@ -38,6 +38,31 @@
 }
 
 .block {
-    width: var(--layout-width);
+    max-width: var(--layout-width);
     padding: 0 var(--layout-indent);
+}
+
+.title {
+    font-size: 42px;
+    font-family: 'ArchivoBlack', 'Arial', 'sans-serif';
+
+    @media (max-width: 806px) {
+        font-size: 30px;
+    }
+    @media (max-width: 636px) {
+        font-size: 24px;
+    }
+    @media (max-width: 480px) {
+        font-size: 22px;
+    }
+    @media (max-width: 480px) {
+        font-size: 20px;
+    }
+}
+
+.line {
+    width: 100%;
+    border: 1px solid rgb(226, 226, 226);
+    border-bottom: 0;
+    margin-bottom: 2rem;
 }

@@ -27,6 +27,7 @@ const localePath = useLocalePath()
   background-color: white;
 
   &__inner {
+    width: 100%;
     display: grid;
     padding-top: 1rem;
     padding-bottom: 1rem;

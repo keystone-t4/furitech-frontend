@@ -62,21 +62,33 @@ const imageAlt = computed(() => {
 </script>
 
 <template>
-  <section class="block block--text">
-    <h2 v-if="block.Title" class="block__title">{{ block.Title }}</h2>
+  <section class="text-content block block--text">
+    <h2 v-if="block.Title" class="text-content__title title">{{ block.Title }}</h2>
+    <hr class="block__line line"/>
 
-    <img v-if="imageSrc" class="block__img" :src="imageSrc" :alt="imageAlt" />
+    <img v-if="imageSrc" class="text-content__img" :src="imageSrc" :alt="imageAlt" />
 
-    <div v-if="html" class="block__content" v-html="html" />
+    <div v-if="html" class="text-content__content" v-html="html" :class="imageSrc ? 'text-content__content--light' : ''"/>
   </section>
 </template>
 
-<style scoped>
-.block__img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 12px;
-  margin: 12px 0 14px;
+<style scoped lang="scss">
+.text-content {
+  padding: 2rem 0;
+
+  &__img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    margin: 12px 0 14px;
+  }
+  &__line {
+    margin-top: 1rem;
+  }
+  &__content {
+    font-size: 18px;
+    color: var(--text-light)
+  }
 }
 </style>
