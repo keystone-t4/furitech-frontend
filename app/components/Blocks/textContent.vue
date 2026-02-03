@@ -29,8 +29,6 @@ function strapiMediaUrl(path?: string) {
 
 const md = new MarkdownIt({ breaks: true, linkify: true })
 
-// ВАЖНО: если в markdown попадаются картинки вида ![](/uploads/..)
-// то надо переписать src, иначе будет пытаться грузить с фронта, а не со Strapi
 const defaultImageRule =
     md.renderer.rules.image ??
     ((tokens, idx, options, env, self) => self.renderToken(tokens, idx, options))
@@ -67,10 +65,8 @@ const imageAlt = computed(() => {
   <section class="block block--text">
     <h2 v-if="block.Title" class="block__title">{{ block.Title }}</h2>
 
-    <!-- Отдельное поле Image -->
     <img v-if="imageSrc" class="block__img" :src="imageSrc" :alt="imageAlt" />
 
-    <!-- Markdown текст -->
     <div v-if="html" class="block__content" v-html="html" />
   </section>
 </template>

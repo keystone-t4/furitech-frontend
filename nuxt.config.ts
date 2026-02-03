@@ -6,11 +6,11 @@ export default defineNuxtConfig({
       head: {
           title: 'Furitech',
           link: [
-              { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+              { rel: 'icon', type: 'image/x-icon', href: '/fav.ico' },
           ]
       }
   },
-    modules: ['@nuxtjs/i18n'],
+    modules: ['@nuxtjs/i18n', '@nuxt/image'],
 
     runtimeConfig: {
         public: {

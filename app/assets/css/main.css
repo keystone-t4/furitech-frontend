@@ -27,7 +27,13 @@
     --focus-visible-color: lightskyblue;
     --error-color: indianred;
 
-    --layout-width: 1440px;
-    --layout-margin: 0 1.5rem;
+    --text-dark: #1B1B1B;
+    --text-light: rgb(94, 94, 94);
+
+
+    --layout-width: 1280px;
+    --layout-indent: 1.5rem;
+
+    --locale-width: 65px;
 }
 

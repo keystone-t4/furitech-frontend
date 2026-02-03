@@ -56,33 +56,11 @@ const selectedLabel = computed(() => {
   <div class="locale-switch">
     <Listbox v-model="selectedCode" as="div" class="locale">
       <ListboxLabel class="sr-only">Language</ListboxLabel>
-
       <ListboxButton class="locale__button">
         <span class="locale__button-text">{{ selectedLabel }}</span>
-
-        <svg
-            class="locale__chevron"
-            width="16"
-            height="16"
-            viewBox="0 0 20 20"
-            fill="none"
-            aria-hidden="true"
-        >
-          <path
-              d="M6 8l4 4 4-4"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-          />
-        </svg>
+        <svg class="locale__arrow" width="8" height="10"><use href="/sprite.svg#arrow"/></svg>
       </ListboxButton>
-
-      <transition
-          leave-active-class="fade-leave-active"
-          leave-from-class="fade-leave-from"
-          leave-to-class="fade-leave-to"
-      >
+      <transition>
         <ListboxOptions class="locale__options">
           <ListboxOption
               v-for="opt in localeOptions"
@@ -99,7 +77,6 @@ const selectedLabel = computed(() => {
                   ]"
             >
               <span class="locale__option-text">{{ opt.label }}</span>
-              <span v-if="selected" class="locale__check" aria-hidden="true">✓</span>
             </li>
           </ListboxOption>
         </ListboxOptions>
@@ -133,16 +110,19 @@ const selectedLabel = computed(() => {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    min-width: 160px;
-    padding: 8px 12px;
-    border-radius: 12px;
-    border: 1px solid rgba(0, 0, 0, 0.25);
+    width: var(--locale-width);
+    padding: 10px 12px;
+    border: 0;
     background: rgba(255, 255, 255, 0.9);
     cursor: pointer;
     user-select: none;
     font-weight: 700;
     font-size: 1rem;
     line-height: 1;
+
+    &:hover {
+      background: rgba(141, 141, 141, 0.18);
+    }
 
     &:focus {
       outline: none;
@@ -161,28 +141,23 @@ const selectedLabel = computed(() => {
     white-space: nowrap;
   }
 
-  &__chevron {
-    flex: 0 0 auto;
-    opacity: 0.75;
-  }
-
   &__options {
     position: absolute;
-
-    margin-top: 8px;
-    min-width: 220px;
+    width: var(--locale-width);
+    min-width: var(--locale-width);
     max-height: 240px;
-    overflow: auto;
-    border-radius: 12px;
-    background: #ffffff;
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
     padding: 6px;
+    background: #fff;
     z-index: 50;
 
-    &:focus {
-      outline: none;
-    }
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(0);
+
+    transition:
+        opacity 0.3s,
+        transform 0.3s,
+        visibility 0.3s;
   }
 
   &__option {
@@ -190,9 +165,7 @@ const selectedLabel = computed(() => {
     align-items: center;
     justify-content: space-between;
     gap: 10px;
-
-    padding: 10px 10px;
-    border-radius: 10px;
+    padding: 6px 6px;
     cursor: pointer;
     user-select: none;
 
@@ -210,20 +183,22 @@ const selectedLabel = computed(() => {
     text-overflow: ellipsis;
     white-space: nowrap;
   }
-
-  &__check {
-    flex: 0 0 auto;
-    font-weight: 900;
-  }
 }
 
-.fade-leave-active {
-  transition: opacity 100ms ease-in;
-}
-.fade-leave-from {
+.locale__button[aria-expanded="true"] + .locale__options {
+  visibility: visible;
   opacity: 1;
+  transform: translateY(0);
 }
-.fade-leave-to {
-  opacity: 0;
+
+.locale__arrow {
+  width: 8px;
+  height: 10px;
+  transition: transform 0.5s;
+  margin-left: auto;
+}
+
+.locale__button[aria-expanded="true"] .locale__arrow {
+  transform: scale(1, -1);
 }
 </style>

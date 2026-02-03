@@ -51,7 +51,6 @@ const baseStrapiUrl = computed(() => (config.public.strapiUrl || '').replace(/\/
 
 function strapiMediaUrl(path?: string) {
   if (!path) return ''
-  // если Strapi когда-то начнёт отдавать абсолютные ссылки — тоже ок
   if (/^https?:\/\//i.test(path)) return path
   return `${baseStrapiUrl.value}${path}`
 }

@@ -1,19 +1,20 @@
 <script setup lang="ts">
 const localePath = useLocalePath()
-
-const goToHomepage = () => {
-  navigateTo(localePath('/'))
-}
 </script>
 
 <template>
   <header class="header">
     <div class="header__inner">
-      <div class="header__title" @click="goToHomepage">
-        Furitech
-      </div>
-
-      <HeaderLangListBox/>
+      <div></div>
+      <NuxtLink :to="localePath('/')" aria-label="To home">
+        <NuxtImg class="header__logo"
+                 src="/img/logo.webp"
+                 alt="logo"
+                 format="webp"
+                 fallback="/img/logo.png"
+        />
+      </NuxtLink>
+      <HeaderLangListBox class="header__lang"/>
     </div>
   </header>
 </template>
@@ -21,17 +22,26 @@ const goToHomepage = () => {
 <style scoped lang="scss">
 .header {
   width: 100%;
-  padding: 1rem 0;
+  padding: 1rem var(--layout-indent);
   display: flex;
-  background-color: #8d8d8d;
   justify-content: center;
+  position: fixed;
+  background-color: white;
 
   &__inner {
-    display: flex;
+    display: grid;
     width: var(--layout-width);
-    margin: var(--layout-margin);
-    justify-content: space-between;
+    grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
+  }
+
+  &__logo {
+    width: 240px;
+    justify-self: center;
+  }
+
+  &__lang {
+    justify-self: end;
   }
 
   &__title {
