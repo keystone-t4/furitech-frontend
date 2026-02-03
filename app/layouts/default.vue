@@ -16,6 +16,7 @@ const head = useLocaleHead()
         <Body class="body">
             <AppHeader/>
             <slot/>
+            <AppFooter/>
         </Body>
     </Html>
 </template>

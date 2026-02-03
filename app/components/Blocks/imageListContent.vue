@@ -46,7 +46,7 @@ function renderMd(raw?: string | null) {
 </script>
 
 <template>
-  <section class="block block--image-list">
+  <section class="block block--image-list ">
     <h2 v-if="block.Title" class="block__title">{{ block.Title }}</h2>
 
     <div v-if="block.Items?.length" class="items">

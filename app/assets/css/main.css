@@ -37,3 +37,7 @@
     --locale-width: 65px;
 }
 
+.block {
+    width: var(--layout-width);
+    padding: 0 var(--layout-indent);
+}

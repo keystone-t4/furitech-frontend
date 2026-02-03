@@ -83,18 +83,18 @@ const data = computed(() => homepage.value?.data)
 
 const title = computed(() => data.value?.Title ?? '')
 const subTitle = computed(() => data.value?.Sub_title ?? '')
-const copyright = computed(() => data.value?.Copyright ?? '')
 
 const hero = computed(() => data.value?.Hero_image ?? null)
 const heroSrc = computed(() => {
   const h = hero.value
   const url =
-      h?.formats?.large?.url ||
-      h?.formats?.medium?.url ||
+      h?.url ||
       h?.formats?.small?.url ||
-      h?.url
+      h?.formats?.medium?.url ||
+      h?.formats?.large?.url
   return strapiMediaUrl(url)
 })
+
 const heroAlt = computed(() => {
   const h = hero.value
   return (h?.alternativeText || h?.caption || title.value || '').toString()
@@ -109,20 +109,18 @@ const blockComponentMap: Record<string, any> = {
 </script>
 
 <template>
-  <section class="home">
-    <div v-if="heroSrc" class="home__hero">
-      <img class="home__hero-img" :src="heroSrc" :alt="heroAlt" />
-    </div>
-
-    <div class="home__inner">
+  <main class="home">
       <p v-if="pending">Loading…</p>
       <p v-else-if="error">Failed to load homepage</p>
-
       <template v-else>
-        <header class="home__header">
-          <h1 v-if="title">{{ title }}</h1>
-          <p v-if="subTitle" class="home__subtitle">{{ subTitle }}</p>
-        </header>
+        <div class="home__hero" :style="{ backgroundImage: heroSrc ? `url(${heroSrc})` : undefined }">
+          <div class="block">
+            <div class="home__hero-text">
+              <h1 v-if="title" class="home__hero-title">{{ title }}</h1>
+              <p v-if="subTitle" class="home__subtitle">{{ subTitle }}</p>
+            </div>
+          </div>
+        </div>
 
         <div class="home__blocks">
           <template v-for="block in blocks" :key="`${block.__component ?? 'unknown'}:${block.id ?? Math.random()}`">
@@ -133,43 +131,79 @@ const blockComponentMap: Record<string, any> = {
             />
           </template>
         </div>
-
-        <footer v-if="copyright" class="home__footer">
-          <small>{{ copyright }}</small>
-        </footer>
       </template>
-    </div>
-  </section>
+  </main>
 </template>
 
-<style scoped>
-.home__hero {
+<style scoped lang="scss">
+.home {
   width: 100%;
-  overflow: hidden;
-}
-.home__hero-img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-.home__inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 24px;
-}
-.home__header {
-  margin: 16px 0 24px;
-}
-.home__subtitle {
-  opacity: 0.8;
-  margin-top: 8px;
-}
-.home__blocks {
-  display: grid;
-  gap: 24px;
-}
-.home__footer {
-  margin-top: 32px;
-  opacity: 0.8;
+
+  &__hero {
+    height: 100dvh;
+    max-height: 1152px;
+    width: 100%;
+    max-width: 2064px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-position: center center;
+    background-blend-mode: normal;
+    background-repeat: no-repeat;
+    background-size: cover;
+    @media (max-width: 768px) {
+      background-position: 60%;
+    }
+    @media (max-width: 576px) {
+      background-position: 65%;
+    }
+  }
+  &__hero-text {
+    color: white;
+    padding-left: 30px;
+    border-left: 1.5px solid white;
+    @media (max-width: 480px) {
+      padding-left: 18px;
+    }
+  }
+  &__hero-title {
+    font-family: 'ArchivoBlack', 'Arial', 'sans-serif';
+    font-size: 56px;
+    max-width: 750px;
+    @media (max-width: 806px) {
+      font-size: 44px;
+    }
+    @media (max-width: 636px) {
+      font-size: 30px;
+    }
+    @media (max-width: 480px) {
+      font-size: 24px;
+    }
+    @media (max-width: 480px) {
+      font-size: 22px;
+    }
+  }
+  &__subtitle {
+    opacity: 0.8;
+    margin-top: 8px;
+    font-size: 22px;
+    @media (max-width: 636px) {
+      font-size: 18px;
+    }
+    @media (max-width: 480px) {
+      font-size: 16px;
+    }
+    @media (max-width: 480px) {
+      font-size: 14px;
+    }
+  }
+
+  &__blocks {
+    width: fit-content;
+    margin: 0 auto;
+    display: grid;
+    gap: 24px;
+  }
 }
 </style>
