@@ -116,7 +116,7 @@ function renderMd(raw?: string | null) {
   &__inner {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.5rem;
   }
 
   &__title {
