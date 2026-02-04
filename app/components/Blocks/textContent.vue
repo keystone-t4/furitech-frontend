@@ -111,9 +111,12 @@ const imageAlt = computed(() => {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 2rem;
-
-
       align-items: stretch;
+
+      @media (max-width: 930px) {
+        grid-template-columns: 1fr;
+        padding-bottom: 2rem;
+      }
     }
   }
 
