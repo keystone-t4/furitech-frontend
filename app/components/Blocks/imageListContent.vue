@@ -46,57 +46,88 @@ function renderMd(raw?: string | null) {
 </script>
 
 <template>
-  <section class="image-list-content block block--image-list ">
-    <h2 v-if="block.Title" class="image-list-content__title title">{{ block.Title }}</h2>
+  <section class="image-list-content block">
+    <h2 v-if="block.Title" class="image-list-content__title title">
+      {{ block.Title }}
+    </h2>
     <hr class="image-list-content__line line"/>
 
     <div v-if="block.Items?.length" class="image-list-content__items">
-      <article v-for="item in block.Items" :key="item.id" class="image-list-content__item item">
-        <img
-            v-if="item.Image?.url"
-            class="item__img"
-            :src="strapiMediaUrl(item.Image.formats?.small?.url || item.Image.url)"
-            :alt="(item.Image.alternativeText || item.Image.caption || item.Title || '').toString()"
-        />
+      <article
+          v-for="item in block.Items"
+          :key="item.id"
+          class="image-list-content__item item"
+          :style="item.Image?.url
+          ? {
+              backgroundImage: `url(${strapiMediaUrl(
+                item.Image.formats?.small?.url || item.Image.url
+              )})`
+            }
+          : undefined
+        "
+      >
+        <div class="item__inner">
+          <h3 v-if="item.Title" class="item__title">
+            {{ item.Title }}
+          </h3>
 
-        <h3 v-if="item.Title" class="item__title">{{ item.Title }}</h3>
-        <div v-if="item.Text_content" class="item__content" v-html="renderMd(item.Text_content)" />
+          <div
+              v-if="item.Text_content"
+              class="item__content"
+              v-html="renderMd(item.Text_content)"
+          />
+        </div>
       </article>
     </div>
   </section>
 </template>
 
-<style scoped>
+
+<style scoped lang="scss">
 .image-list-content {
-  padding: 2rem 0;
+  width: 100%;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  margin: 0 auto;
+
+  &__line {
+    margin-top: 1rem;
+  }
+  &__content {
+    font-size: 18px;
+    color: var(--text-light);
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    @media (max-width: 930px) {
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: 636px) {
+      grid-template-columns: 1fr;
+    }
+  }
 }
 
-.image-list-content__title {
-  margin-bottom: 12px;
-}
-.image-list-content__items {
-  display: grid;
-  gap: 16px;
-}
 .item {
-  border: 1px solid rgba(0,0,0,0.08);
-  border-radius: 12px;
-  padding: 16px;
-}
-.item__img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 10px;
-  margin-bottom: 12px;
-}
-.item__title {
-  margin: 0 0 8px;
-}
-.item__content :deep(p) {
-  margin: 0 0 10px;
-}
-.item__content :deep(ul) {
-  margin: 0 0 10px 20px;
+  padding: 1.5rem;
+  color: white;
+  min-height: 400px;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &__title {
+    font-size: 32px;
+  }
+
+  &__content {
+    font-size: 18px;
+  }
 }
 </style>

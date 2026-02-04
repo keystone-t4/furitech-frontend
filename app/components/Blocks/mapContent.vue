@@ -74,7 +74,6 @@ const mapSrc = computed(() => props.block?.Map_url ?? '')
   padding: 2rem 0;
 
   &--light {
-    background-color: var(--light-gray);
     padding: 0;
   }
 
@@ -97,27 +96,13 @@ const mapSrc = computed(() => props.block?.Map_url ?? '')
     padding: 2rem 0;
   }
 
-  &__title {
-    &--light {
-      color: white;
-    }
-  }
-
   &__line {
     margin-top: 1rem;
-
-    &--light {
-      border-color: white;
-    }
   }
 
   &__content {
     font-size: 18px;
     color: var(--text-light);
-
-    &--light {
-      color: white;
-    }
   }
 
   &__map {

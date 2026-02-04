@@ -46,6 +46,7 @@ const copyright =
   padding: 2rem 0;
 
   &__inner {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
