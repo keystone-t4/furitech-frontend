@@ -62,33 +62,93 @@ const imageAlt = computed(() => {
 </script>
 
 <template>
-  <section class="text-content block block--text">
-    <h2 v-if="block.Title" class="text-content__title title">{{ block.Title }}</h2>
-    <hr class="block__line line"/>
+  <section class="text-content"
+           :class="imageSrc ? 'text-content--light' : ''"
+  >
+    <div class="text-content__inner block"
+         :class="imageSrc ? 'text-content__inner--light' : ''"
+    >
+      <div class="text-content__description"
+           :class="imageSrc ? 'text-content__description--light' : ''"
 
-    <img v-if="imageSrc" class="text-content__img" :src="imageSrc" :alt="imageAlt" />
+      >
+        <h2 v-if="block.Title"
+            class="text-content__title title"
+            :class="imageSrc ? 'text-content__title--light' : ''"
+        >
+          {{ block.Title }}
+        </h2>
+        <hr class="text-content__line line"
+            :class="imageSrc ? 'text-content__line--light' : ''"
+        />
+        <div v-if="html"
+             class="text-content__content"
+             v-html="html"
+             :class="imageSrc ? 'text-content__content--light' : ''"
+        />
+      </div>
+      <img v-if="imageSrc" class="text-content__img" :src="imageSrc" :alt="imageAlt" />
+    </div>
 
-    <div v-if="html" class="text-content__content" v-html="html" :class="imageSrc ? 'text-content__content--light' : ''"/>
   </section>
 </template>
 
 <style scoped lang="scss">
 .text-content {
+  width: 100%;
   padding: 2rem 0;
 
-  &__img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 12px;
-    margin: 12px 0 14px;
+
+  &--light {
+    background-color: var(--light-gray);
+    padding: 0;
+  }
+
+  &__inner {
+    margin: 0 auto;
+
+    &--light {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+
+
+      align-items: stretch;
+    }
+  }
+
+
+
+  &__description--light {
+    padding: 2rem 0;
+  }
+  &__title {
+    &--light {
+      color: white;
+    }
   }
   &__line {
     margin-top: 1rem;
+    &--light {
+     border-color: white;
+    }
   }
   &__content {
     font-size: 18px;
-    color: var(--text-light)
+    color: var(--text-light);
+    &--light {
+      color: white;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    display: block;
   }
 }
 </style>

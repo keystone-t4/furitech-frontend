@@ -58,7 +58,11 @@ const selectedLabel = computed(() => {
       <ListboxLabel class="sr-only">Language</ListboxLabel>
       <ListboxButton class="locale__button">
         <span class="locale__button-text">{{ selectedLabel }}</span>
-        <svg class="locale__arrow" width="8" height="10"><use href="/sprite.svg#arrow"/></svg>
+
+        <svg class="locale__arrow" id="arrow"  width="8" height="10" viewBox="0 0 8 10">
+          <path d="M3.99991 1.5L3.99991 8.19818M7.09138 5.62195L4.36425 8.34909C4.16303 8.5503 3.8368 8.5503 3.63558 8.34909L0.908447 5.62195" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        </svg>
+
       </ListboxButton>
       <transition>
         <ListboxOptions class="locale__options">
@@ -119,7 +123,6 @@ const selectedLabel = computed(() => {
     font-weight: 700;
     font-size: 1rem;
     line-height: 1;
-
     &:hover {
       background: rgba(141, 141, 141, 0.18);
     }
@@ -196,6 +199,8 @@ const selectedLabel = computed(() => {
   height: 10px;
   transition: transform 0.5s;
   margin-left: auto;
+  color: var(--text-dark);
+  stroke: var(--text-dark);
 }
 
 .locale__button[aria-expanded="true"] .locale__arrow {

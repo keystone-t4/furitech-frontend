@@ -2,7 +2,9 @@
 import {useStrapiLocale} from "~/composable/useStrapiLocale";
 import BlocksTextContent from '~/components/Blocks/textContent.vue'
 import BlocksImageListContent from '~/components/Blocks/imageListContent.vue'
+import BlocksMapContent from '~/components/Blocks/mapContent.vue'
 
+//Вынести в отдельную директорию types
 
 type StrapiSingleResponse<T> = { data: T | null; meta?: unknown }
 
@@ -34,6 +36,14 @@ type BlockImageListContent = {
   Items?: BlockImageListItem[] | null
 }
 
+type BlockMapContent = {
+  __component: 'blocks.map-content'
+  id: number
+  Title?: string | null
+  Text_content?: string | null
+  Map_url?: string | null
+}
+
 type Homepage = {
   id: number
   locale: string
@@ -41,7 +51,12 @@ type Homepage = {
   Sub_title?: string | null
   Copyright?: string | null
   Hero_image?: StrapiMedia | null
-  Block?: Array<BlockTextContent | BlockImageListContent | Record<string, any>> | null
+  Block?: Array<
+      BlockTextContent |
+      BlockImageListContent |
+      BlockMapContent |
+      Record<string, any>
+  > | null
 }
 
 const config = useRuntimeConfig()
@@ -65,6 +80,8 @@ function homepageRequestUrl(locale: string) {
   params.set('populate[Block][on][blocks.text-content][populate]', '*')
 
   params.set('populate[Block][on][blocks.image-list-content][populate][Items][populate][Image]', 'true')
+
+  params.set('populate[Block][on][blocks.map-content][populate]', '*')
 
   return `${baseStrapiUrl.value}/api/homepage?${params.toString()}`
 }
@@ -100,6 +117,7 @@ const blocks = computed(() => data.value?.Block ?? [])
 const blockComponentMap: Record<string, any> = {
   'blocks.text-content': BlocksTextContent,
   'blocks.image-list-content': BlocksImageListContent,
+  'blocks.map-content': BlocksMapContent,
 }
 </script>
 
@@ -126,6 +144,7 @@ const blockComponentMap: Record<string, any> = {
             />
           </template>
         </div>
+
       </template>
   </main>
 </template>
@@ -207,8 +226,6 @@ const blockComponentMap: Record<string, any> = {
 
   &__blocks {
     width: 100%;
-    display: grid;
-    justify-content: center;
   }
 }
 </style>
