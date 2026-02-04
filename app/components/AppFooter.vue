@@ -7,7 +7,7 @@ type HomepageFooter = { Copyright?: string }
 const config = useRuntimeConfig()
 const locale = useStrapiLocale()
 
-const baseUrl = (config.public.strapiUrl || '').replace(/\/$/, '')
+const baseUrl = (config.public.backend || '').replace(/\/$/, '')
 
 const { data } = await useAsyncData(
     () => `homepage-footer:${locale.value}`,

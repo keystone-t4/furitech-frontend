@@ -123,7 +123,11 @@ const selectedLabel = computed(() => {
     font-weight: 700;
     font-size: 1rem;
     line-height: 1;
-    &:hover {
+    @media (max-width: 636px) {
+      padding: 8px 10px;
+    }
+
+      &:hover {
       background: rgba(141, 141, 141, 0.18);
     }
 
@@ -139,9 +143,11 @@ const selectedLabel = computed(() => {
   &__button-text {
     display: inline-block;
     max-width: 220px;
+    min-width: fit-content;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    color: var(--text-dark);
   }
 
   &__options {
@@ -161,6 +167,10 @@ const selectedLabel = computed(() => {
         opacity 0.3s,
         transform 0.3s,
         visibility 0.3s;
+
+    @media (max-width: 636px) {
+      padding: 6px;
+    }
   }
 
   &__option {
@@ -171,6 +181,10 @@ const selectedLabel = computed(() => {
     padding: 6px 6px;
     cursor: pointer;
     user-select: none;
+
+    @media (max-width: 636px) {
+      padding: 4px 4px;
+    }
 
     &.is-active {
       background: rgba(141, 141, 141, 0.18);
@@ -198,7 +212,6 @@ const selectedLabel = computed(() => {
   width: 8px;
   height: 10px;
   transition: transform 0.5s;
-  margin-left: auto;
   color: var(--text-dark);
   stroke: var(--text-dark);
 }

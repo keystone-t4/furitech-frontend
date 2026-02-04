@@ -19,7 +19,7 @@ type BlockTextContent = {
 const props = defineProps<{ block: BlockTextContent }>()
 
 const config = useRuntimeConfig()
-const baseStrapiUrl = (config.public.strapiUrl || '').replace(/\/$/, '')
+const baseStrapiUrl = (config.public.backend || '').replace(/\/$/, '')
 
 function strapiMediaUrl(path?: string) {
   if (!path) return ''
@@ -124,17 +124,18 @@ const imageAlt = computed(() => {
   &__description--light {
     padding: 2rem 0;
   }
-  &__line {
-    margin-top: 1rem;
-  }
   &__content {
     font-size: 18px;
     color: var(--text-light);
-  }
+    @media (max-width: 636px) {
+      font-size: 1rem
+    }
+    }
 
   &__img {
     width: 100%;
     height: 100%;
+    padding: 2rem 0;
 
     object-fit: cover;
     object-position: center;

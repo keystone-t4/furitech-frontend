@@ -80,6 +80,7 @@ const mapSrc = computed(() => props.block?.Map_url ?? '')
   &__inner {
     margin: 0 auto;
 
+
     &--light {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -96,10 +97,6 @@ const mapSrc = computed(() => props.block?.Map_url ?? '')
     padding: 2rem 0;
   }
 
-  &__line {
-    margin-top: 1rem;
-  }
-
   &__content {
     font-size: 18px;
     color: var(--text-light);
@@ -108,7 +105,9 @@ const mapSrc = computed(() => props.block?.Map_url ?? '')
   &__map {
     width: 100%;
     height: 100%;
-    min-height: 250px;
+    padding: 2rem 0;
+
+    min-height: 350px;
   }
 }
 </style>

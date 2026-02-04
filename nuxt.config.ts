@@ -10,21 +10,22 @@ export default defineNuxtConfig({
           ]
       }
   },
-    modules: ['@nuxtjs/i18n', '@nuxt/image'],
 
-    runtimeConfig: {
-        public: {
-            url: '',
-            strapiUrl: process.env.NUXT_PUBLIC_STRAPI_URL || 'http://localhost:1337',
-        },
-    },
-    i18n: {
-        baseUrl: 'http://localhost:3000',
-        defaultLocale: 'en',
-        locales: [
-            { code: 'en', name: 'English', file: 'en.json', language: 'en-US', isCatchallLocale: true },
-            { code: 'fr', name: 'French',  file: 'fr.json', language: 'fr-FR' },
-            { code: 'es', name: 'Spanish', file: 'es.json', language: 'es-ES' }
-        ]
-    }
+  modules: ['@nuxtjs/i18n', '@nuxt/image'],
+
+  runtimeConfig: {
+      public: {
+          backend: process.env.NUXT_PUBLIC_STRAPI_URL,
+      },
+  },
+
+  i18n: {
+      baseUrl: 'http://localhost:3000',
+      defaultLocale: 'en',
+      locales: [
+          { code: 'en', name: 'English', file: 'en.json', language: 'en-US', isCatchallLocale: true },
+          { code: 'fr', name: 'French',  file: 'fr.json', language: 'fr-FR' },
+          { code: 'es', name: 'Spanish', file: 'es.json', language: 'es-ES' }
+      ]
+  }
 })

@@ -27,7 +27,7 @@ const props = defineProps<{
 }>()
 
 const config = useRuntimeConfig()
-const baseStrapiUrl = (config.public.strapiUrl || '').replace(/\/$/, '')
+const baseStrapiUrl = (config.public.backend || '').replace(/\/$/, '')
 
 function strapiMediaUrl(path?: string) {
   if (!path) return ''
@@ -90,9 +90,6 @@ function renderMd(raw?: string | null) {
   padding-bottom: 2rem;
   margin: 0 auto;
 
-  &__line {
-    margin-top: 1rem;
-  }
   &__content {
     font-size: 18px;
     color: var(--text-light);

@@ -32,12 +32,15 @@ const localePath = useLocalePath()
     padding-top: 1rem;
     padding-bottom: 1rem;
     grid-template-columns: 1fr 1fr 1fr;
-    align-items: center;
+    align-items: end;
   }
 
   &__logo {
     width: 240px;
     justify-self: center;
+    @media (max-width: 636px) {
+      width: 200px;
+    }
   }
 
   &__lang {

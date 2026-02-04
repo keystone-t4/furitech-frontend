@@ -62,7 +62,7 @@ type Homepage = {
 const config = useRuntimeConfig()
 const strapiLocale = useStrapiLocale()
 
-const baseStrapiUrl = computed(() => (config.public.strapiUrl || '').replace(/\/$/, ''))
+const baseStrapiUrl = computed(() => (config.public.backend || '').replace(/\/$/, ''))
 
 function strapiMediaUrl(path?: string) {
   if (!path) return ''
@@ -190,7 +190,7 @@ const blockComponentMap: Record<string, any> = {
   }
   &__hero-title {
     min-height: fit-content;
-
+    line-height: 120%;
     font-family: 'ArchivoBlack', 'Arial', 'sans-serif';
     font-size: 56px;
     max-width: 750px;
