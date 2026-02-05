@@ -20,6 +20,7 @@ export default defineNuxtConfig({
   },
 
   i18n: {
+      baseUrl: process.env.NUXT_PUBLIC_SITE_URL,
       defaultLocale: 'en',
       locales: [
           { code: 'en', name: 'English', file: 'en.json', language: 'en-US', isCatchallLocale: true },
