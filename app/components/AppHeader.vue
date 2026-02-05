@@ -5,7 +5,6 @@ const localePath = useLocalePath()
 <template>
   <header class="header">
     <div class="header__inner block">
-      <div></div>
       <NuxtLink class="header__logo" :to="localePath('/')" aria-label="To home">
         <NuxtImg src="/img/logo.webp"
                  alt="logo"
@@ -13,6 +12,7 @@ const localePath = useLocalePath()
                  fallback="/img/logo.png"
         />
       </NuxtLink>
+      <div></div>
       <HeaderLangListBox class="header__lang"/>
     </div>
   </header>
@@ -25,6 +25,7 @@ const localePath = useLocalePath()
   justify-content: center;
   position: fixed;
   background-color: white;
+  z-index: 1000;
 
   &__inner {
     width: 100%;
@@ -37,7 +38,6 @@ const localePath = useLocalePath()
 
   &__logo {
     width: 240px;
-    justify-self: center;
     @media (max-width: 636px) {
       width: 200px;
     }

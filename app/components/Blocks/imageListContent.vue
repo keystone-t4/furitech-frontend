@@ -57,14 +57,15 @@ function renderMd(raw?: string | null) {
           v-for="item in block.Items"
           :key="item.id"
           class="image-list-content__item item"
-          :style="item.Image?.url
-          ? {
-              backgroundImage: `url(${strapiMediaUrl(
-                item.Image.formats?.small?.url || item.Image.url
-              )})`
-            }
-          : undefined
-        "
+          :style="
+    item.Image?.url
+      ? {
+          '--bg-image': `url(${strapiMediaUrl(
+            item.Image.formats?.small?.url || item.Image.url
+          )})`,
+        }
+      : undefined
+  "
       >
         <div class="item__inner">
           <h3 v-if="item.Title" class="item__title">
@@ -109,11 +110,31 @@ function renderMd(raw?: string | null) {
 }
 
 .item {
-  padding: 1.5rem;
-  color: white;
-  min-height: 400px;
+    padding: 1.5rem;
+    color: white;
+    min-height: 400px;
+
+    position: relative;
+    overflow: hidden; // важно: прячем всё, что "вылезло"
+
+    // фон-картинка
+    &::before {
+      content: '';
+      position: absolute;
+
+      // делаем картинку выше родителя (вылезает вверх/вниз)
+      inset: -20% 0; // сверху/снизу -20%, слева/справа 0
+
+      background-image: var(--bg-image);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover; // тянем по ширине/вписываем с кропом
+      z-index: 0;
+    }
 
   &__inner {
+    position: relative;
+    z-index: 2; // текст поверх фона и оверлея
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
