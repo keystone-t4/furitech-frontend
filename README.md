@@ -1,1 +1,1 @@
-# T4 Universe furitech on Nuxt 4!
+# Furitech on Nuxt 4!
