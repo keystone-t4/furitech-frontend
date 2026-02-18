@@ -151,8 +151,11 @@ const blockComponentMap: Record<string, any> = {
 
 <style scoped lang="scss">
 .home {
-  padding-top: 96px;
+  padding-top: 79px;
   width: 100%;
+  @media (max-width: 636px) {
+    padding-top: 68px;
+  }
 
   &__hero {
     height: 100dvh;
@@ -182,8 +185,8 @@ const blockComponentMap: Record<string, any> = {
   &__hero-text {
     min-height: fit-content;
     color: white;
-    padding-left: 30px;
-    border-left: 1.5px solid white;
+    //padding-left: 30px;
+    //border-left: 1.5px solid white;
     @media (max-width: 480px) {
       padding-left: 18px;
     }

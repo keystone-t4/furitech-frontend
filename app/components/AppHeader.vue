@@ -37,9 +37,9 @@ const localePath = useLocalePath()
   }
 
   &__logo {
-    width: 240px;
+    width: 180px;
     @media (max-width: 636px) {
-      width: 200px;
+      width: 140px;
     }
   }
 
