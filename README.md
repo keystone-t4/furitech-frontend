@@ -5,7 +5,7 @@
 ## Связанные ссылки:
 
 - Backend: https://github.com/keystone-t4/furitech-backend
-- Прод: https://keystone-t4.github.io/innovo-static/
+- Прод: https://furitechsl.com/
 - Админка: https://furitechsl.com/admin/
 
 
@@ -13,8 +13,7 @@
 
 - **Nuxt 4**
 - **TypeScript** (выключен, но частично используется)
-- **SCSS** + BEM: базовые/общие стили подключаются из `main.css`
-
+- **SCSS** + **BEM**: базовые/общие стили подключаются из `main.css`
 
 ## Быстрый старт (локально)
 
@@ -33,7 +32,11 @@ npm run setup:env
 ```
 Создаст `.env` на основе `.env.example`
 
-### 4. Запуск dev-сервера:
+`NUXT_PUBLIC_STRAPI_URL` — URL Strapi
+
+`NUXT_PUBLIC_SITE_URL` — URL сайта
+
+### 3. Запуск dev-сервера:
 ```bash
 npm run dev
 ```
