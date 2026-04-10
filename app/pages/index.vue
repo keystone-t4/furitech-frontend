@@ -1,96 +1,33 @@
 <script setup lang="ts">
 import {useStrapiLocale} from "~/composable/useStrapiLocale";
+import {useStrapiSeo} from "~/composable/useStrapiSeo";
+import {useStrapiMedia} from "~/composable/useStrapiMedia";
 import BlocksTextContent from '~/components/Blocks/textContent.vue'
 import BlocksImageListContent from '~/components/Blocks/imageListContent.vue'
 import BlocksMapContent from '~/components/Blocks/mapContent.vue'
+import type { StrapiSingleResponse, Homepage } from "~/types/strapi-types";
 
-//Вынести в отдельную директорию types
-
-type StrapiSingleResponse<T> = { data: T | null; meta?: unknown }
-
-type StrapiMedia = {
-  url?: string
-  alternativeText?: string | null
-  caption?: string | null
-  formats?: Record<string, { url?: string }>
-}
-
-type BlockTextContent = {
-  __component: 'blocks.text-content'
-  id: number
-  Title?: string | null
-  Text_content?: string | null
-}
-
-type BlockImageListItem = {
-  id: number
-  Title?: string | null
-  Text_content?: string | null
-  Image?: StrapiMedia | null
-}
-
-type BlockImageListContent = {
-  __component: 'blocks.image-list-content'
-  id: number
-  Title?: string | null
-  Items?: BlockImageListItem[] | null
-}
-
-type BlockMapContent = {
-  __component: 'blocks.map-content'
-  id: number
-  Title?: string | null
-  Text_content?: string | null
-  Map_url?: string | null
-}
-
-type Homepage = {
-  id: number
-  locale: string
-  Title?: string | null
-  Sub_title?: string | null
-  Copyright?: string | null
-  Hero_image?: StrapiMedia | null
-  Block?: Array<
-      BlockTextContent |
-      BlockImageListContent |
-      BlockMapContent |
-      Record<string, any>
-  > | null
-}
+// ================= LOGIC =================
 
 const config = useRuntimeConfig()
 const strapiLocale = useStrapiLocale()
+const { strapiMediaUrl } = useStrapiMedia()
 
 const baseStrapiUrl = computed(() => (config.public.backend || '').replace(/\/$/, ''))
-
-function strapiMediaUrl(path?: string) {
-  if (!path) return ''
-  if (/^https?:\/\//i.test(path)) return path
-  return `${baseStrapiUrl.value}${path}`
-}
 
 function homepageRequestUrl(locale: string) {
   const params = new URLSearchParams()
 
   params.set('locale', locale)
-
   params.set('populate[Hero_image]', 'true')
-
   params.set('populate[Block][on][blocks.text-content][populate]', '*')
-
   params.set('populate[Block][on][blocks.image-list-content][populate][Items][populate][Image]', 'true')
-
   params.set('populate[Block][on][blocks.map-content][populate]', '*')
-
+  params.set('populate[SEO][populate]', '*')
   return `${baseStrapiUrl.value}/api/homepage?${params.toString()}`
 }
 
-const {
-  data: homepage,
-  pending,
-  error,
-} = await useAsyncData(
+const { data: homepage, pending, error } = await useAsyncData(
     () => `homepage:${strapiLocale.value}`,
     () => $fetch<StrapiSingleResponse<Homepage>>(homepageRequestUrl(strapiLocale.value)),
     { watch: [strapiLocale] }
@@ -113,6 +50,17 @@ const heroSrc = computed(() => {
 })
 
 const blocks = computed(() => data.value?.Block ?? [])
+
+if (data.value) {
+  useStrapiSeo({
+    seo: data.value.SEO,
+    title: data.value.Title,
+    description: data.value.Sub_title,
+    image: heroSrc.value,
+    siteName: 'Furitech',
+    fallbackDescription: data.value.Sub_title
+  })
+}
 
 const blockComponentMap: Record<string, any> = {
   'blocks.text-content': BlocksTextContent,
@@ -185,8 +133,6 @@ const blockComponentMap: Record<string, any> = {
   &__hero-text {
     min-height: fit-content;
     color: white;
-    //padding-left: 30px;
-    //border-left: 1.5px solid white;
     @media (max-width: 480px) {
       padding-left: 18px;
     }

@@ -1,4 +1,3 @@
-// composables/useStrapiLocale.ts
 export const useStrapiLocale = () => {
     const { locale } = useI18n()
 
