@@ -46,6 +46,11 @@ jobs:
             mkdir $TIMESTAMP
             tar -xzf /home/developer/furitech-frontend.tar.gz -C $TIMESTAMP
             cd $TIMESTAMP
+            
+            set -a
+            source /var/www/furitech/frontend/shared/.env
+            set +a
+            
             npm ci
             npm run build
 
