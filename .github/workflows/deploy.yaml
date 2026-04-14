@@ -1,0 +1,55 @@
+name: Deploy Nuxt
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+
+      - name: Archive furitech-frontend via git
+        run: git archive -o furitech-frontend.tar.gz HEAD
+
+      - name: Upload to server
+        uses: appleboy/scp-action@v0.1.5
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          source: "furitech-frontend.tar.gz"
+          target: "/home/developer/"
+
+      - name: Deploy on server
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          script: |
+            export NVM_DIR=/home/developer/.nvm
+            source $NVM_DIR/nvm.sh
+            export NUXT_TELEMETRY_DISABLED=1
+
+            cd /var/www/furitech/frontend/releases
+            TIMESTAMP=$(date +%Y%m%d%H%M%S)
+            mkdir $TIMESTAMP
+            tar -xzf /home/developer/furitech-frontend.tar.gz -C $TIMESTAMP
+            cd $TIMESTAMP
+            npm ci
+            npm run build
+
+            sudo ln -sfn /var/www/furitech/frontend/releases/$TIMESTAMP /var/www/furitech/frontend/current
+            sudo systemctl restart furitech-frontend
+
+            ls -dt /var/www/furitech/frontend/releases/* 2>/dev/null | tail -n +6 | xargs -r rm -rf
