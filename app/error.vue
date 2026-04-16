@@ -40,7 +40,7 @@ const buttonText = computed(() => {
   if (is404.value && errorData.value?.Main_page_button_text) {
     return errorData.value.Main_page_button_text
   }
-  return 'Вернуться на главную'
+  return 'Go back home'
 })
 </script>
 
