@@ -13,11 +13,11 @@ const head = useLocaleHead()
             </template>
         </Head>
 
-        <Body class="body">
+        <div class="body">
             <AppHeader/>
             <slot/>
             <AppFooter/>
-        </Body>
+        </div>
     </Html>
 </template>
 
@@ -28,5 +28,8 @@ const head = useLocaleHead()
   color: var(--text-dark);
   position: relative;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
 }
 </style>

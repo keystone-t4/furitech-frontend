@@ -23,7 +23,8 @@
 }
 
 :root {
-    --accent-color: darkgreen;
+    --accent-color: #425542;
+    --accent-color-hover: #5e7c5d;
     --focus-visible-color: lightskyblue;
     --error-color: indianred;
 
@@ -36,6 +37,11 @@
     --layout-indent: 1.5rem;
 
     --locale-width: 65px;
+
+    --header-height: 79px;
+    @media (max-width: 636px) {
+        --header-height: 68px;
+    }
 }
 
 .block {
@@ -71,5 +77,27 @@
     @media (max-width: 636px) {
         margin-top: 0.5rem;
         margin-bottom: 1rem;
+    }
+}
+
+.button {
+    min-width: fit-content;
+    text-decoration: none;
+    border-radius: 0.625rem;
+    border: none;
+    color: white;
+    background-color: var(--accent-color);
+    padding: 0.625rem 1.875rem;
+    font-weight: 500;
+    font-size: 1.125rem;
+    @media (max-width: 768px) {
+        font-size: 1rem;
+    }
+    @media (max-width: 480px) {
+        font-size: 0.875rem;
+        padding: 0.5rem 1rem
+    }
+    &:hover {
+        background-color: var(--accent-color-hover);
     }
 }
