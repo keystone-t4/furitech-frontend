@@ -71,29 +71,41 @@ const blockComponentMap: Record<string, any> = {
 
 <template>
   <main class="home">
-      <p v-if="pending">Loading…</p>
-      <p v-else-if="error">Failed to load homepage</p>
-      <template v-else>
-        <div class="home__hero" :style="{ backgroundImage: heroSrc ? `url(${heroSrc})` : undefined }">
-          <div class="block">
-            <div class="home__hero-text">
-              <h1 v-if="title" class="home__hero-title">{{ title }}</h1>
-              <p v-if="subTitle" class="home__subtitle">{{ subTitle }}</p>
-            </div>
+    <p v-if="pending">Loading…</p>
+    <p v-else-if="error">Failed to load homepage</p>
+
+    <template v-else>
+      <div class="home__hero">
+        <img
+          v-if="heroSrc"
+          :src="heroSrc"
+          alt=""
+          class="home__hero-bg"
+          fetchpriority="high"
+          loading="eager"
+        />
+        <div class="block">
+          <div class="home__hero-text">
+            <h1 v-if="title" class="home__hero-title">{{ title }}</h1>
+            <p v-if="subTitle" class="home__subtitle">{{ subTitle }}</p>
           </div>
         </div>
 
-        <div class="home__blocks">
-          <template v-for="block in blocks" :key="`${block.__component ?? 'unknown'}:${block.id ?? Math.random()}`">
-            <component
-                v-if="block?.__component && blockComponentMap[block.__component]"
-                :is="blockComponentMap[block.__component]"
-                :block="block"
-            />
-          </template>
-        </div>
+      </div>
 
-      </template>
+      <div class="home__blocks">
+        <template
+          v-for="block in blocks"
+          :key="`${block.__component ?? 'unknown'}:${block.id ?? Math.random()}`"
+        >
+          <component
+            v-if="block?.__component && blockComponentMap[block.__component]"
+            :is="blockComponentMap[block.__component]"
+            :block="block"
+          />
+        </template>
+      </div>
+    </template>
   </main>
 </template>
 
@@ -106,6 +118,8 @@ const blockComponentMap: Record<string, any> = {
   }
 
   &__hero {
+    position: relative;
+    overflow: hidden;
     height: 100dvh;
     max-height: 1152px;
     min-height: fit-content;
@@ -119,14 +133,25 @@ const blockComponentMap: Record<string, any> = {
     background-blend-mode: normal;
     background-repeat: no-repeat;
     background-size: cover;
+  }
+  &__hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    z-index: 0;
     @media (max-width: 768px) {
-      background-position: 60%;
+      object-position: 60%;
     }
     @media (max-width: 576px) {
-      background-position: 65%;
+      object-position: 65%;
     }
   }
   &__hero .block {
+    position: relative;
+    z-index: 1;
     width: 100%;
     min-height: fit-content;
   }
