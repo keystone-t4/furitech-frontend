@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import MarkdownIt from 'markdown-it'
+import MarkdownIt from "markdown-it";
 
 type BlockMapContent = {
   id: number
@@ -16,12 +16,38 @@ const md = new MarkdownIt({ breaks: true, linkify: true })
 const html = computed(() => md.render(props.block?.Text_content ?? ''))
 
 const mapSrc = computed(() => props.block?.Map_url ?? '')
+
+const showMap = ref(false)
+const mapRef = ref<HTMLElement | null>(null)
+
+onMounted(() => {
+  if (!mapSrc.value) return
+
+  const observer = new IntersectionObserver((entries) => {
+    const entry = entries[0]
+    if (!entry) return
+
+    if (entry.isIntersecting) {
+      showMap.value = true
+      observer.disconnect()
+    }
+    },
+    {
+      rootMargin: "200px"
+    }
+    )
+
+  if (mapRef.value) {
+    observer.observe(mapRef.value)
+  }
+})
 </script>
 
 <template>
   <section
-      class="map-content"
-      :class="mapSrc ? 'map-content--light' : ''"
+    ref="mapRef"
+    class="map-content"
+    :class="mapSrc ? 'map-content--light' : ''"
   >
     <div
         class="map-content__inner block"
@@ -53,16 +79,17 @@ const mapSrc = computed(() => props.block?.Map_url ?? '')
       </div>
 
       <iframe
-          v-if="mapSrc"
-          class="map-content__map"
-          width="450"
-          height="250"
-          frameborder="0"
-          style="border:0"
-          referrerpolicy="no-referrer-when-downgrade"
-          :src="mapSrc"
-          loading="lazy"
-          allowfullscreen
+        title="Google Maps location"
+        v-if="showMap && mapSrc"
+        class="map-content__map"
+        width="450"
+        height="250"
+        frameborder="0"
+        style="border:0"
+        referrerpolicy="no-referrer-when-downgrade"
+        :src="mapSrc"
+        loading="lazy"
+        allowfullscreen
       />
     </div>
   </section>
