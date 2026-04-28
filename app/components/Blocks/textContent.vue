@@ -87,7 +87,12 @@ const imageAlt = computed(() => {
              :class="imageSrc ? 'text-content__content--light' : ''"
         />
       </div>
-      <img v-if="imageSrc" class="text-content__img" :src="imageSrc" :alt="imageAlt" />
+      <NuxtImg
+        v-if="imageSrc"
+        class="text-content__img"
+        :src="imageSrc"
+        :alt="imageAlt"
+      />
     </div>
 
   </section>

@@ -76,7 +76,7 @@ const blockComponentMap: Record<string, any> = {
 
     <template v-else>
       <div class="home__hero">
-        <img
+        <NuxtImg
           v-if="heroSrc"
           :src="heroSrc"
           alt=""
