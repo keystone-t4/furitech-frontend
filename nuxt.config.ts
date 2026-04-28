@@ -6,7 +6,21 @@ export default defineNuxtConfig({
       head: {
           title: 'Furitech',
           link: [
-              { rel: 'icon', type: 'image/x-icon', href: '/fav.ico' },
+            { rel: 'icon', type: 'image/x-icon', href: '/fav.ico' },
+            {
+              rel: 'preload',
+              href: '/fonts/Montserrat-Bold.woff2',
+              as: 'font',
+              type: 'font/woff2',
+              crossorigin: ''
+            },
+            {
+              rel: 'preload',
+              href: '/fonts/ArchivoBlack-Regular.woff2',
+              as: 'font',
+              type: 'font/woff2',
+              crossorigin: ''
+            }
           ]
       }
   },
