@@ -10,6 +10,8 @@ const localePath = useLocalePath()
                  alt="logo"
                  format="webp"
                  fallback="/img/logo.png"
+                 width="180"
+                 height="48"
         />
       </NuxtLink>
       <div></div>
