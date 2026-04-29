@@ -13,9 +13,5 @@
     {
       "path": "./.nuxt/tsconfig.node.json"
     }
-  ],
-  "compilerOptions": {
-    "types": ["node", "@nuxt/types", "@nuxtjs/i18n", "vue"],
-    "strict": true
-  }
+  ]
 }

@@ -6,13 +6,19 @@ const localePath = useLocalePath()
   <header class="header">
     <div class="header__inner block">
       <NuxtLink class="header__logo" :to="localePath('/')" aria-label="To home">
-        <NuxtImg src="/img/logo.webp"
-                 alt="logo"
-                 format="webp"
-                 fallback="/img/logo.png"
-                 width="180"
-                 height="48"
-        />
+        <picture>
+          <source
+            srcset="/img/logo.webp 1x, /img/logo@2x.webp 2x"
+            type="image/webp"
+          >
+
+          <img
+            src="/img/logo.png"
+            width="180"
+            height="47"
+            alt="logo"
+          >
+        </picture>
       </NuxtLink>
       <div></div>
       <HeaderLangListBox class="header__lang"/>
