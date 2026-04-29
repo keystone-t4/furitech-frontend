@@ -41,5 +41,6 @@ export default defineNuxtConfig({
           { code: 'fr', name: 'French',  file: 'fr.json', language: 'fr-FR' },
           { code: 'es', name: 'Spanish', file: 'es.json', language: 'es-ES' }
       ]
-  }
+  },
+  // typescript: { typeCheck: 'build' }
 })
