@@ -1,11 +1,10 @@
 <script setup lang="ts">
 import type { NuxtError } from '#app'
-import { useStrapiLocale } from "~/composable/useStrapiLocale"
 
 const props = defineProps<{ error: NuxtError }>()
 
 const config = useRuntimeConfig()
-const strapiLocale = useStrapiLocale()
+const { locale } = useI18n()
 
 const baseStrapiUrl = computed(() =>
     (config.public.backend || '').replace(/\/$/, '')
@@ -20,9 +19,9 @@ function errorPageRequestUrl(locale: string) {
 }
 
 const { data: errorPage } = await useAsyncData(
-    () => `error-page:${strapiLocale.value}`,
-    () => $fetch(errorPageRequestUrl(strapiLocale.value)),
-    { watch: [strapiLocale] }
+    () => `error-page:${locale.value}`,
+    () => $fetch(errorPageRequestUrl(locale.value)),
+    { watch: [locale] }
 )
 
 const errorData = computed(() => errorPage.value?.data)
