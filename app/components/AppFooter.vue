@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import { useStrapiLocale } from '~/composable/useStrapiLocale'
 
 type StrapiSingleResponse<T> = { data: T | null }
 type HomepageFooter = { Copyright?: string }
 
 const config = useRuntimeConfig()
-const locale = useStrapiLocale()
+const {locale} = useI18n()
 
 const baseUrl = (config.public.backend || '').replace(/\/$/, '')
 

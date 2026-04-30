@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import {useStrapiLocale} from "~/composable/useStrapiLocale";
 import {useStrapiSeo} from "~/composable/useStrapiSeo";
 import {useStrapiMedia} from "~/composable/useStrapiMedia";
 import BlocksTextContent from '~/components/Blocks/textContent.vue'
@@ -10,7 +9,7 @@ import type { StrapiSingleResponse, Homepage } from "~/types/strapi-types";
 // ================= LOGIC =================
 
 const config = useRuntimeConfig()
-const strapiLocale = useStrapiLocale()
+const { locale } = useI18n()
 const { strapiMediaUrl } = useStrapiMedia()
 
 const baseStrapiUrl = computed(() => (config.public.backend || '').replace(/\/$/, ''))
@@ -28,9 +27,9 @@ function homepageRequestUrl(locale: string) {
 }
 
 const { data: homepage, pending, error } = await useAsyncData(
-    () => `homepage:${strapiLocale.value}`,
-    () => $fetch<StrapiSingleResponse<Homepage>>(homepageRequestUrl(strapiLocale.value)),
-    { watch: [strapiLocale] }
+    () => `homepage:${locale.value}`,
+    () => $fetch<StrapiSingleResponse<Homepage>>(homepageRequestUrl(locale.value)),
+    { watch: [locale] }
 )
 
 const data = computed(() => homepage.value?.data)
