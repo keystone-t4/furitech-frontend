@@ -1,103 +1,44 @@
-@import "normalize.css";
+@import 'normalize.css';
 
 @font-face {
-    font-family: 'Montserrat';
-    src: url('/fonts/Montserrat-Regular.woff2') format("woff2");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'Montserrat';
+  src: url('/fonts/Montserrat-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 @font-face {
-    font-family: 'Montserrat';
-    src: url('/fonts/Montserrat-Bold.woff2') format("woff2");
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'Montserrat';
+  src: url('/fonts/Montserrat-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 @font-face {
-    font-family: 'ArchivoBlack';
-    src: url('/fonts/ArchivoBlack-Regular.woff2') format("woff2");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'ArchivoBlack';
+  src: url('/fonts/ArchivoBlack-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
 :root {
-    --accent-color: #425542;
-    --accent-color-hover: #5e7c5d;
-    --focus-visible-color: lightskyblue;
-    --error-color: indianred;
+  --accent-color: #425542;
+  --accent-color-hover: #5e7c5d;
+  --focus-visible-color: lightskyblue;
+  --error-color: indianred;
 
-    --text-dark: #342f2a;
-    --text-light: rgb(94, 94, 94);
-    --light-gray: rgb(99, 99, 99);
+  --text-dark: #342f2a;
+  --text-light: rgb(94, 94, 94);
+  --light-gray: rgb(99, 99, 99);
 
+  --layout-width: 1280px;
+  --layout-indent: 1.5rem;
 
-    --layout-width: 1280px;
-    --layout-indent: 1.5rem;
+  --locale-width: 65px;
 
-    --locale-width: 65px;
-
-    --header-height: 79px;
-    @media (max-width: 636px) {
-        --header-height: 68px;
-    }
-}
-
-.block {
-    max-width: var(--layout-width);
-    padding: 0 var(--layout-indent);
-}
-
-.title {
-    font-size: 42px;
-    line-height: 120%;
-    font-family: 'ArchivoBlack', 'Arial', 'sans-serif';
-
-    @media (max-width: 806px) {
-        font-size: 30px;
-    }
-    @media (max-width: 636px) {
-        font-size: 24px;
-    }
-    @media (max-width: 480px) {
-        font-size: 22px;
-    }
-    @media (max-width: 480px) {
-        font-size: 20px;
-    }
-}
-
-.line {
-    width: 100%;
-    border: 1px solid rgb(226, 226, 226);
-    border-bottom: 0;
-    margin-top: 1rem;
-    margin-bottom: 2rem;
-    @media (max-width: 636px) {
-        margin-top: 0.5rem;
-        margin-bottom: 1rem;
-    }
-}
-
-.button {
-    min-width: fit-content;
-    text-decoration: none;
-    border-radius: 0.625rem;
-    border: none;
-    color: white;
-    background-color: var(--accent-color);
-    padding: 0.625rem 1.875rem;
-    font-weight: 500;
-    font-size: 1.125rem;
-    @media (max-width: 768px) {
-        font-size: 1rem;
-    }
-    @media (max-width: 480px) {
-        font-size: 0.875rem;
-        padding: 0.5rem 1rem
-    }
-    &:hover {
-        background-color: var(--accent-color-hover);
-    }
+  --header-height: 79px;
+  @media (max-width: 636px) {
+    --header-height: 68px;
+  }
 }

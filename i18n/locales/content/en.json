@@ -1,0 +1,137 @@
+{
+  "home_page": {
+    "id": 81,
+    "title": "EXCELLENCE ACROSS INDUSTRIES:",
+    "sub_title": null,
+    "hero_image": {
+      "id": 16,
+      "name": "main-background.webp",
+      "alternativeText": null,
+      "caption": null,
+      "width": 4128,
+      "height": 2304,
+      "formats": {
+        "thumbnail": {
+          "ext": ".webp",
+          "url": "/uploads/thumbnail_main_background_ef8fa1431f.webp",
+          "hash": "thumbnail_main_background_ef8fa1431f",
+          "mime": "image/webp",
+          "name": "thumbnail_main-background.webp",
+          "path": null,
+          "size": 6.27,
+          "width": 245,
+          "height": 137
+        },
+        "small": {
+          "ext": ".webp",
+          "url": "/uploads/small_main_background_ef8fa1431f.webp",
+          "hash": "small_main_background_ef8fa1431f",
+          "mime": "image/webp",
+          "name": "small_main-background.webp",
+          "path": null,
+          "size": 22.61,
+          "width": 500,
+          "height": 279
+        },
+        "medium": {
+          "ext": ".webp",
+          "url": "/uploads/medium_main_background_ef8fa1431f.webp",
+          "hash": "medium_main_background_ef8fa1431f",
+          "mime": "image/webp",
+          "name": "medium_main-background.webp",
+          "path": null,
+          "size": 45.88,
+          "width": 750,
+          "height": 419
+        },
+        "large": {
+          "ext": ".webp",
+          "url": "/uploads/large_main_background_ef8fa1431f.webp",
+          "hash": "large_main_background_ef8fa1431f",
+          "mime": "image/webp",
+          "name": "large_main-background.webp",
+          "path": null,
+          "size": 74.7,
+          "width": 1000,
+          "height": 558
+        }
+      },
+      "hash": "main_background_ef8fa1431f",
+      "ext": ".webp",
+      "mime": "image/webp",
+      "size": 605.18,
+      "url": "/uploads/main_background_ef8fa1431f.webp",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-04-27T15:14:01.623Z",
+      "updatedAt": "2026-05-07T11:21:34.266Z",
+      "publishedAt": "2026-04-27T15:14:01.623Z"
+    },
+    "block": [
+      {
+        "__component": "blocks.text-content",
+        "id": 225,
+        "title": "WELCOME TO FURITECH",
+        "text_content": "A dynamic supplier specializing in three key industries: bitumen and bitumen products, agriculture, and mineral fertilizers. From our base in Melilla, Spain, **we connect diverse markets with high-quality products tailored to meet the unique needs of our clients**.  \n\n**Bitumen and bitumen products** provide the foundation for durable infrastructure projects worldwide, from roads to roofing. **Our agriculture division** offers essential commodities such as corn, soy, and Brazil nuts, supporting food production and supply chains across regions. Additionally, our **mineral fertilizers** promote sustainable agricultural growth by delivering vital nutrients for crops.  \n\nAt Furitech, our diverse expertise is united by a common goal: quality, reliability, and customer satisfaction. Whether it’s building the infrastructure of the future, advancing the food supply chain, or supporting sustainable agriculture with our fertilizers, **Furitech is your trusted partner every step of the way**.",
+        "image": null
+      },
+      {
+        "__component": "blocks.image-list-content",
+        "id": 65,
+        "title": "OUR PRODUCTS",
+        "items": []
+      },
+      {
+        "__component": "blocks.text-content",
+        "id": 226,
+        "title": "WHY CHOOSE FURITECH",
+        "text_content": "-\t**Commitment to Quality**\nWe deliver products that meet the highest industry standards, ensuring reliability and performance.\n\n-\t**Experts in Logistics**\nOur team ensures seamless delivery to your location, no matter the challenge.\n\n-\t**Customer-Focused Solutions**\nWe tailor our offerings to meet your unique needs, building partnerships that last.\n",
+        "image": null
+      },
+      {
+        "__component": "blocks.text-content",
+        "id": 227,
+        "title": "Let us demonstrate our commitment.",
+        "text_content": "From quality assurance to reliable logistics and customized service — see how our approach serves your project. Get in touch.",
+        "image": null
+      },
+      {
+        "__component": "blocks.map-content",
+        "id": 51,
+        "title": "CONTACTS",
+        "text_content": "+34 628 219 736\nDaniel Flores, Account Manager\n\nGeneral Marina 15, 52001, Melilla, Melilla, Spain\n",
+        "map_url": "https://www.google.com/maps?q=C.%20Gral.%20Marina,%2015,%2052001%20Melilla,%20Spain&output=embed"
+      }
+    ],
+    "seo": {
+      "meta_title": "Furitech",
+      "meta_description": "Global supplier of bitumen, agricultural products, and mineral fertilizers. Reliable logistics and tailored solutions.",
+      "meta_keywords": "bitumen, agricultural products, minearal fetilizers, logistics",
+      "og_title": "Furitech",
+      "og_description": "Global supplier of bitumen, agricultural products, and mineral fertilizers. Reliable logistics and tailored solutions.",
+      "og_image": null
+    },
+    "createdAt": "2026-01-30T09:16:44.233Z",
+    "updatedAt": "2026-05-08T15:00:05.682Z",
+    "publishedAt": "2026-05-08T15:00:05.700Z",
+    "locale": "en"
+  },
+  "footer": {
+    "id": 2,
+    "copyright": "Copyright © 2025 Furitech - All Rights Reserved.",
+    "createdAt": "2026-04-30T15:44:00.799Z",
+    "updatedAt": "2026-04-30T15:44:00.799Z",
+    "publishedAt": "2026-04-30T15:44:00.813Z",
+    "locale": "en"
+  },
+  "error_page": {
+    "id": 2,
+    "page_not_found_text": "Page not found",
+    "main_page_button_text": "Go back home",
+    "createdAt": "2026-04-16T13:09:38.446Z",
+    "updatedAt": "2026-04-16T13:09:39.609Z",
+    "publishedAt": "2026-04-16T13:09:39.615Z",
+    "locale": "en"
+  }
+}

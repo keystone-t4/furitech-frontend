@@ -4,29 +4,29 @@
 
 ## Связанные ссылки
 
-* Backend: [https://github.com/keystone-t4/furitech-backend](https://github.com/keystone-t4/furitech-backend)
-* Прод: [https://furitechsl.com/](https://furitechsl.com/)
-* Админка: [https://furitechsl.com/admin/](https://furitechsl.com/admin/)
+- Backend: [https://github.com/keystone-t4/furitech-backend](https://github.com/keystone-t4/furitech-backend)
+- Прод: [https://furitechsl.com/](https://furitechsl.com/)
+- Админка: [https://furitechsl.com/admin/](https://furitechsl.com/admin/)
 
 ## Стек
 
-* **Nuxt 4**
-* **Vue 3**
-* **TypeScript**
-* **SCSS** + **BEM**: базовые и общие стили подключаются из `main.css`
-* **Nginx**
-* **systemd**
-* **GitHub Actions**
-* **SSH / SCP**
-* **nvm** для управления версиями Node.js
+- **Nuxt 4**
+- **Vue 3**
+- **TypeScript**
+- **SCSS** + **BEM**: базовые и общие стили подключаются из `main.css`
+- **Nginx**
+- **systemd**
+- **GitHub Actions**
+- **SSH / SCP**
+- **nvm** для управления версиями Node.js
 
 ## Быстрый старт (локально)
 
 ### Требования
 
-* Node.js / npm
-* `nvm` (рекомендуется)
-* `.env`
+- Node.js / npm
+- `nvm` (рекомендуется)
+- `.env`
 
 ### 1. Установка зависимостей
 
@@ -44,8 +44,8 @@ npm run setup:env
 
 Основные переменные окружения:
 
-* `NUXT_PUBLIC_STRAPI_URL` — URL Strapi
-* `NUXT_PUBLIC_SITE_URL` — URL сайта
+- `NUXT_PUBLIC_STRAPI_URL` — URL Strapi
+- `NUXT_PUBLIC_SITE_URL` — URL сайта
 
 ### 3. Запуск в режиме разработки
 
@@ -69,23 +69,23 @@ npm run preview
 
 В проекте используется **двухветочная схема**:
 
-* `develop` — рабочая ветка для разработки;
-* `main` — ветка продакшена.
+- `develop` — рабочая ветка для разработки;
+- `main` — ветка продакшена.
 
 ### Логика работы
 
-* Любой обычный кодовый коммит делается в `develop`.
-* На `develop` запускается только **CI**: установка зависимостей и сборка.
-* В `main` изменения попадают только через merge из `develop`.
-* При push в `main` запускается **CD**: архивирование проекта, отправка на сервер, деплой новой версии и перезапуск сервиса.
-* Изменения только в `README.md` и `docs/**` не должны запускать деплой, если они не сопровождаются релизом в `main`.
+- Любой обычный кодовый коммит делается в `develop`.
+- На `develop` запускается только **CI**: установка зависимостей и сборка.
+- В `main` изменения попадают только через merge из `develop`.
+- При push в `main` запускается **CD**: архивирование проекта, отправка на сервер, деплой новой версии и перезапуск сервиса.
+- Изменения только в `README.md` и `docs/**` не должны запускать деплой, если они не сопровождаются релизом в `main`.
 
 ### Workflow 1: CI (`.github/workflows/ci.yaml`)
 
 CI запускается:
 
-* при push в `develop`;
-* при открытии или обновлении Pull Request в `main` или `develop`.
+- при push в `develop`;
+- при открытии или обновлении Pull Request в `main` или `develop`.
 
 Что делает CI:
 
@@ -156,9 +156,9 @@ git push origin main
 
 ### Что где лежит
 
-* `current` — текущая активная версия проекта, на которую смотрит `systemd`-сервис.
-* `releases/` — папка с историей релизов.
-* `shared/.env` — общие переменные окружения.
+- `current` — текущая активная версия проекта, на которую смотрит `systemd`-сервис.
+- `releases/` — папка с историей релизов.
+- `shared/.env` — общие переменные окружения.
 
 ### Логика rollback
 
@@ -173,25 +173,25 @@ sudo systemctl restart furitech-frontend
 
 ### Что настроено на VPS
 
-* деплой через GitHub Actions;
-* запуск проекта через `systemd`;
-* reverse proxy через `nginx`;
-* доступ по SSH только под пользователем `developer`;
-* включён firewall;
-* структура `releases / current / shared`;
-* `npm ci` и `npm run build` проходят на сервере;
-* `npm audit` выдаёт `0` уязвимостей.
+- деплой через GitHub Actions;
+- запуск проекта через `systemd`;
+- reverse proxy через `nginx`;
+- доступ по SSH только под пользователем `developer`;
+- включён firewall;
+- структура `releases / current / shared`;
+- `npm ci` и `npm run build` проходят на сервере;
+- `npm audit` выдаёт `0` уязвимостей.
 
 ### Nginx
 
 `nginx` используется как reverse proxy:
 
-* запросы к Nuxt идут на `127.0.0.1:3000`;
-* запросы Strapi (`/admin`, `/api`, `/uploads` и связанные маршруты) идут на `127.0.0.1:1337`;
-* HTTPS включён через Certbot;
-* HTTP перенаправляется на HTTPS;
-* включён HTTP/2;
-* кэширование статики настроено только там, где это не ломает SSR-рендеринг.
+- запросы к Nuxt идут на `127.0.0.1:3000`;
+- запросы Strapi (`/admin`, `/api`, `/uploads` и связанные маршруты) идут на `127.0.0.1:1337`;
+- HTTPS включён через Certbot;
+- HTTP перенаправляется на HTTPS;
+- включён HTTP/2;
+- кэширование статики настроено только там, где это не ломает SSR-рендеринг.
 
 ### Важно про кеширование
 
@@ -227,9 +227,9 @@ journalctl -u furitech-frontend -f
 
 ## Замечания для следующего разработчика
 
-* Не обновлять зависимости вслепую: сначала проверять `npm ls`, `npm audit`, затем `npm ci` и `npm run build`.
-* `package-lock.json` должен быть синхронизирован с `package.json` и коммититься вместе с изменениями зависимостей.
-* SSH на VPS работает только через отдельный пользовательский доступ и настроенные ключи.
-* При работе с релизами не трогать `current` вручную, если деплой уже управляется скриптом/пайплайном.
-* Для отката использовать переключение symlink на предыдущий релиз и рестарт `systemd`-сервиса.
-* Если меняется Nginx-конфиг, обязательно проверять `nginx -t` перед reload.
+- Не обновлять зависимости вслепую: сначала проверять `npm ls`, `npm audit`, затем `npm ci` и `npm run build`.
+- `package-lock.json` должен быть синхронизирован с `package.json` и коммититься вместе с изменениями зависимостей.
+- SSH на VPS работает только через отдельный пользовательский доступ и настроенные ключи.
+- При работе с релизами не трогать `current` вручную, если деплой уже управляется скриптом/пайплайном.
+- Для отката использовать переключение symlink на предыдущий релиз и рестарт `systemd`-сервиса.
+- Если меняется Nginx-конфиг, обязательно проверять `nginx -t` перед reload.

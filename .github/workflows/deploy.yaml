@@ -30,8 +30,8 @@ jobs:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
-          source: "furitech-frontend.tar.gz"
-          target: "/home/developer/"
+          source: 'furitech-frontend.tar.gz'
+          target: '/home/developer/'
 
       - name: Deploy on server
         uses: appleboy/ssh-action@v0.1.6
@@ -49,11 +49,11 @@ jobs:
             mkdir $TIMESTAMP
             tar -xzf /home/developer/furitech-frontend.tar.gz -C $TIMESTAMP
             cd $TIMESTAMP
-            
+
             set -a
             source /var/www/furitech/frontend/shared/.env
             set +a
-            
+
             npm ci
             npm run build
 
