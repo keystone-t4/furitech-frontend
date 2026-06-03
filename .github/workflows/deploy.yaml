@@ -31,8 +31,8 @@ jobs:
           NUXT_PUBLIC_GOOGLE_SITE_VERIFICATION: ${{ secrets.NUXT_PUBLIC_GOOGLE_SITE_VERIFICATION }}
         run: npm run generate
 
-      - name: Archive dist folder
-        run: tar -czf dist.tar.gz dist/
+      - name: Archive output folder
+        run: tar -czf output.tar.gz -C .output/public .
 
       - name: Upload to server
         uses: appleboy/scp-action@v0.1.5
@@ -40,7 +40,7 @@ jobs:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
-          source: 'dist.tar.gz'
+          source: 'output.tar.gz'
           target: '/home/developer/'
 
       - name: Deploy on server
@@ -53,10 +53,7 @@ jobs:
             cd /var/www/furitech/frontend/releases
             TIMESTAMP=$(date +%Y%m%d%H%M%S)
             mkdir $TIMESTAMP
-            tar -xzf /home/developer/dist.tar.gz -C $TIMESTAMP
-
-            mv $TIMESTAMP/dist/* $TIMESTAMP/
-            rm -rf $TIMESTAMP/dist
+            tar -xzf /home/developer/output.tar.gz -C $TIMESTAMP
 
             sudo ln -sfn /var/www/furitech/frontend/releases/$TIMESTAMP /var/www/furitech/frontend/current
 
