@@ -41,7 +41,19 @@ export const createStrapiApi = (options: StrapiClientOptions) => {
           hero_image: true,
           seo: { populate: '*' },
           block: {
-            populate: '*'
+            on: {
+              'blocks.image-list-content': {
+                populate: {
+                  items: {
+                    populate: { image: true },
+                  },
+                },
+              },
+              'blocks.text-content': {
+                populate: { image: true },
+              },
+              'blocks.map-content': true,
+            },
           },
         },
       },
