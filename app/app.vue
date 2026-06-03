@@ -1,13 +1,9 @@
 <template>
   <div class="">
-    <NuxtRouteAnnouncer/>
-    <NuxtLoadingIndicator/>
+    <NuxtRouteAnnouncer />
+    <NuxtLoadingIndicator />
     <NuxtLayout>
-      <NuxtPage/>
+      <NuxtPage />
     </NuxtLayout>
   </div>
 </template>
-
-<style scoped lang="scss">
-
-</style>

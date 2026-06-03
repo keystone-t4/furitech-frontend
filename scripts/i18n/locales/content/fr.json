@@ -1,0 +1,137 @@
+{
+  "home_page": {
+    "id": 79,
+    "title": "EXCELLENCE DANS TOUTES LES INDUSTRIES",
+    "sub_title": null,
+    "hero_image": {
+      "id": 16,
+      "name": "main-background.webp",
+      "alternativeText": null,
+      "caption": null,
+      "width": 4128,
+      "height": 2304,
+      "formats": {
+        "thumbnail": {
+          "ext": ".webp",
+          "url": "/uploads/thumbnail_main_background_ef8fa1431f.webp",
+          "hash": "thumbnail_main_background_ef8fa1431f",
+          "mime": "image/webp",
+          "name": "thumbnail_main-background.webp",
+          "path": null,
+          "size": 6.27,
+          "width": 245,
+          "height": 137
+        },
+        "small": {
+          "ext": ".webp",
+          "url": "/uploads/small_main_background_ef8fa1431f.webp",
+          "hash": "small_main_background_ef8fa1431f",
+          "mime": "image/webp",
+          "name": "small_main-background.webp",
+          "path": null,
+          "size": 22.61,
+          "width": 500,
+          "height": 279
+        },
+        "medium": {
+          "ext": ".webp",
+          "url": "/uploads/medium_main_background_ef8fa1431f.webp",
+          "hash": "medium_main_background_ef8fa1431f",
+          "mime": "image/webp",
+          "name": "medium_main-background.webp",
+          "path": null,
+          "size": 45.88,
+          "width": 750,
+          "height": 419
+        },
+        "large": {
+          "ext": ".webp",
+          "url": "/uploads/large_main_background_ef8fa1431f.webp",
+          "hash": "large_main_background_ef8fa1431f",
+          "mime": "image/webp",
+          "name": "large_main-background.webp",
+          "path": null,
+          "size": 74.7,
+          "width": 1000,
+          "height": 558
+        }
+      },
+      "hash": "main_background_ef8fa1431f",
+      "ext": ".webp",
+      "mime": "image/webp",
+      "size": 605.18,
+      "url": "/uploads/main_background_ef8fa1431f.webp",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-04-27T15:14:01.623Z",
+      "updatedAt": "2026-05-07T11:21:34.266Z",
+      "publishedAt": "2026-04-27T15:14:01.623Z"
+    },
+    "block": [
+      {
+        "__component": "blocks.text-content",
+        "id": 219,
+        "title": "BIENVENUE CHEZ FURITECH",
+        "text_content": "un fournisseur dynamique spécialisé dans trois secteurs clés : le bitume et ses produits dérivés, l’agriculture et les fertilisants minéraux. Depuis notre base de Melilla, en Espagne, **nous connectons divers marchés avec des produits de haute qualité, adaptés aux besoins spécifiques de nos clients**.\n\n**Le bitume et ses dérivés** constituent la base de projets d’infrastructure durables dans le monde entier, des routes aux toitures. Notre **division agricole** offre des produits de base essentiels tels que le maïs, le soja et les noix du Brésil, soutenant la production alimentaire et les chaînes d’approvisionnement de différentes régions. De plus, nos** fertilisants minéraux** favorisent une croissance agricole durable en apportant des nutriments essentiels aux cultures.\n\nChez Furitech, notre expertise diversifiée est unie par un objectif commun : la qualité, la fiabilité et la satisfaction client. Qu’il s’agisse de construire les infrastructures de demain, de faire progresser la chaîne d’approvisionnement alimentaire ou de soutenir une agriculture durable avec nos fertilisants, **Furitech est votre partenaire de confiance à chaque étape**.\n",
+        "image": null
+      },
+      {
+        "__component": "blocks.image-list-content",
+        "id": 63,
+        "title": "NOS PRODUITS",
+        "items": []
+      },
+      {
+        "__component": "blocks.text-content",
+        "id": 220,
+        "title": "POURQUOI CHOISIR FURITECH",
+        "text_content": "•\t**Engagement Qualité**\nNous fournissons des produits conformes aux normes industrielles les plus élevées, garantissant fiabilité et performance.\n\n•\t**Experts en Logistique**\nNotre équipe assure une livraison efficace à votre emplacement, quels que soient les défis.\n\n•\t**Solutions Axées sur le Client**\nNous adaptons notre offre à vos besoins spécifiques, pour construire des relations durables.",
+        "image": null
+      },
+      {
+        "__component": "blocks.text-content",
+        "id": 221,
+        "title": "Permettez-nous de vous démontrer notre engagement.",
+        "text_content": "De la garantie de qualité à une logistique fiable, en passant par un service personnalisé: découvrez comment notre approche peut servir votre projet. Contactez-nous.",
+        "image": null
+      },
+      {
+        "__component": "blocks.map-content",
+        "id": 49,
+        "title": "CONTACT",
+        "text_content": "+34 628 219 736\nDaniel Flores, Responsable Commercial\n\nGeneral Marina 15, 52001, Melilla, Melilla, Espagne\n",
+        "map_url": "https://www.google.com/maps?q=C.%20Gral.%20Marina,%2015,%2052001%20Melilla,%20Spain&output=embed"
+      }
+    ],
+    "seo": {
+      "meta_title": "Furitech",
+      "meta_description": "Fournisseur mondial de bitume, de produits agricoles et d’engrais minéraux. Solutions logistiques fiables et adaptées aux besoins de chaque client.",
+      "meta_keywords": "bitume, produits agricoles, engrais minéraux, logistique, commerce international",
+      "og_title": "Furitech",
+      "og_description": "Fournisseur mondial de bitume, de produits agricoles et d’engrais minéraux. Solutions logistiques fiables et adaptées aux besoins de chaque client.",
+      "og_image": null
+    },
+    "createdAt": "2026-01-30T09:17:23.054Z",
+    "updatedAt": "2026-05-07T11:25:39.012Z",
+    "publishedAt": "2026-05-07T11:25:39.025Z",
+    "locale": "fr"
+  },
+  "footer": {
+    "id": 4,
+    "copyright": "Copyright © 2025 Furitech – Tous droits réservés.",
+    "createdAt": "2026-04-30T15:44:12.348Z",
+    "updatedAt": "2026-04-30T15:44:12.348Z",
+    "publishedAt": "2026-04-30T15:44:12.356Z",
+    "locale": "fr"
+  },
+  "error_page": {
+    "id": 6,
+    "page_not_found_text": "Page introuvable",
+    "main_page_button_text": "Retour à l'accueil",
+    "createdAt": "2026-04-16T13:12:37.186Z",
+    "updatedAt": "2026-04-16T13:12:37.186Z",
+    "publishedAt": "2026-04-16T13:12:37.192Z",
+    "locale": "fr"
+  }
+}

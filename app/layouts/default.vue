@@ -1,29 +1,35 @@
 <script setup lang="ts">
-const head = useLocaleHead()
+import { useStrapi } from '~/composable/useStrapi'
+import type { FooterType } from '#shared/types/strapi-types'
+import { useLocaleContent } from '~/composable/useContent'
+
+const strapi = useStrapi()
+const content = useLocaleContent()
+const { locale } = useI18n()
+
+const { data: footer } = await useAsyncData<FooterType>(
+  () => `footer-${locale.value}`,
+  async () => (import.meta.server ? await strapi.getFooter(locale.value) : content.value.footer),
+)
 </script>
 
 <template>
-    <Html :lang="head.htmlAttrs.lang" :dir="head.htmlAttrs.dir">
-        <Head>
-            <template v-for="link in head.link" :key="link.key">
-              <Link :id="link.key" :rel="link.rel" :href="link.href" :hreflang="link.hreflang" />
-            </template>
-            <template v-for="meta in head.meta" :key="meta.key">
-              <Meta :id="meta.key" :property="meta.property" :content="meta.content" />
-            </template>
-        </Head>
-
-        <div class="body">
-            <AppHeader/>
-            <slot/>
-            <AppFooter/>
-        </div>
-    </Html>
+  <div class="body">
+    <AppHeader />
+    <slot />
+    <AppFooter v-if="footer" :footer="footer" />
+  </div>
 </template>
 
 <style lang="scss">
 .body {
-  font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  font-family:
+    'Montserrat',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Arial,
+    sans-serif;
   font-weight: 400;
   color: var(--text-dark);
   position: relative;

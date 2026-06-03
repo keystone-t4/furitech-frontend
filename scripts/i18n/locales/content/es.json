@@ -1,0 +1,137 @@
+{
+  "home_page": {
+    "id": 77,
+    "title": "EXCELENCIA EN TODAS LAS INDUSTRIAS",
+    "sub_title": null,
+    "hero_image": {
+      "id": 16,
+      "name": "main-background.webp",
+      "alternativeText": null,
+      "caption": null,
+      "width": 4128,
+      "height": 2304,
+      "formats": {
+        "thumbnail": {
+          "ext": ".webp",
+          "url": "/uploads/thumbnail_main_background_ef8fa1431f.webp",
+          "hash": "thumbnail_main_background_ef8fa1431f",
+          "mime": "image/webp",
+          "name": "thumbnail_main-background.webp",
+          "path": null,
+          "size": 6.27,
+          "width": 245,
+          "height": 137
+        },
+        "small": {
+          "ext": ".webp",
+          "url": "/uploads/small_main_background_ef8fa1431f.webp",
+          "hash": "small_main_background_ef8fa1431f",
+          "mime": "image/webp",
+          "name": "small_main-background.webp",
+          "path": null,
+          "size": 22.61,
+          "width": 500,
+          "height": 279
+        },
+        "medium": {
+          "ext": ".webp",
+          "url": "/uploads/medium_main_background_ef8fa1431f.webp",
+          "hash": "medium_main_background_ef8fa1431f",
+          "mime": "image/webp",
+          "name": "medium_main-background.webp",
+          "path": null,
+          "size": 45.88,
+          "width": 750,
+          "height": 419
+        },
+        "large": {
+          "ext": ".webp",
+          "url": "/uploads/large_main_background_ef8fa1431f.webp",
+          "hash": "large_main_background_ef8fa1431f",
+          "mime": "image/webp",
+          "name": "large_main-background.webp",
+          "path": null,
+          "size": 74.7,
+          "width": 1000,
+          "height": 558
+        }
+      },
+      "hash": "main_background_ef8fa1431f",
+      "ext": ".webp",
+      "mime": "image/webp",
+      "size": 605.18,
+      "url": "/uploads/main_background_ef8fa1431f.webp",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-04-27T15:14:01.623Z",
+      "updatedAt": "2026-05-07T11:21:34.266Z",
+      "publishedAt": "2026-04-27T15:14:01.623Z"
+    },
+    "block": [
+      {
+        "__component": "blocks.text-content",
+        "id": 207,
+        "title": "BIENVENIDOS A FURITECH",
+        "text_content": "un proveedor dinámico especializado en tres sectores clave: betún y productos derivados, agricultura y fertilizantes minerales. Desde nuestra base en Melilla, España, **conectamos diversos mercados con productos de alta calidad adaptados a las necesidades específicas de nuestros clientes.**\n\n**El betún y sus derivados** son la base de proyectos de infraestructura duraderos en todo el mundo, desde carreteras hasta techados. **Nuestra división agrícola** ofrece productos básicos esenciales como maíz, soja y nueces de Brasil, apoyando la producción alimentaria y las cadenas de suministro en distintas regiones. Además, nuestros **fertilizantes minerales** promueven un crecimiento agrícola sostenible al aportar nutrientes vitales para los cultivos.\n\nEn Furitech, nuestra amplia experiencia se une en un objetivo común: calidad, fiabilidad y satisfacción del cliente. Ya sea construyendo la infraestru\nctura del futuro, impulsando la cadena de suministro de alimentos o apoyando la agricultura sostenible con nuestros fertilizantes, **Furitech es su socio de confianza en cada paso.**\n",
+        "image": null
+      },
+      {
+        "__component": "blocks.image-list-content",
+        "id": 59,
+        "title": "NUESTROS PRODUCTOS",
+        "items": []
+      },
+      {
+        "__component": "blocks.text-content",
+        "id": 208,
+        "title": "POR QUÉ ELEGIR FURITECH",
+        "text_content": "•\t**Compromiso con la Calidad**\nSuministramos productos que cumplen los más altos estándares de la industria, garantizando fiabilidad y rendimiento.\n•\t**Expertos en Logística**\nNuestro equipo asegura una entrega eficiente en su ubicación, sin importar los desafíos.\n•\t**Soluciones Centradas en el Cliente**\nAdaptamos nuestra oferta a sus necesidades específicas, construyendo relaciones duraderas.\n",
+        "image": null
+      },
+      {
+        "__component": "blocks.text-content",
+        "id": 209,
+        "title": "Permítanos demostrarle nuestro compromiso.",
+        "text_content": "Desde la garantía de calidad hasta una logística fiable y un servicio personalizado: descubra cómo nuestro enfoque puede servir a su proyecto. Póngase en contacto con nosotros.",
+        "image": null
+      },
+      {
+        "__component": "blocks.map-content",
+        "id": 45,
+        "title": "CONTACTO",
+        "text_content": "+34 628 219 736\nDaniel Flores, Gerente de Cuenta\n\nGeneral Marina 15, 52001, Melilla, Melilla, España\n",
+        "map_url": "https://www.google.com/maps?q=C.%20Gral.%20Marina,%2015,%2052001%20Melilla,%20Spain&output=embed"
+      }
+    ],
+    "seo": {
+      "meta_title": "Furitech",
+      "meta_description": "Proveedor global de betún, productos agrícolas y fertilizantes minerales. Soluciones logísticas confiables y adaptadas a las necesidades de cada cliente.",
+      "meta_keywords": "betún, productos agrícolas, fertilizantes minerales, logística, comercio internacional",
+      "og_title": "Furitech",
+      "og_description": "Proveedor global de betún, productos agrícolas y fertilizantes minerales. Soluciones logísticas confiables y adaptadas a las necesidades de cada cliente.",
+      "og_image": null
+    },
+    "createdAt": "2026-01-30T09:17:45.741Z",
+    "updatedAt": "2026-05-07T11:16:36.318Z",
+    "publishedAt": "2026-05-07T11:16:36.346Z",
+    "locale": "es"
+  },
+  "footer": {
+    "id": 7,
+    "copyright": "Copyright © 2025 Furitech – Todos los derechos reservados.",
+    "createdAt": "2026-04-30T15:44:19.069Z",
+    "updatedAt": "2026-04-30T15:44:27.137Z",
+    "publishedAt": "2026-04-30T15:44:27.147Z",
+    "locale": "es"
+  },
+  "error_page": {
+    "id": 4,
+    "page_not_found_text": "Página no encontrada",
+    "main_page_button_text": "Volver a la página principal",
+    "createdAt": "2026-04-16T13:10:26.362Z",
+    "updatedAt": "2026-04-16T13:10:26.362Z",
+    "publishedAt": "2026-04-16T13:10:26.371Z",
+    "locale": "es"
+  }
+}

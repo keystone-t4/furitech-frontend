@@ -1,62 +1,70 @@
-import type { StrapiSeo } from "~/types/strapi-types";
-import { unref } from 'vue'
+import type { StrapiSeo } from '#shared/types/strapi-types'
 
-type MaybeRef<T> = T | Ref<T>
+const DEFAULT_TITLE = 'Furitech'
+const DEFAULT_DESCRIPTION =
+  'Global supplier of bitumen, agricultural products, and mineral fertilizers. Reliable logistics and tailored solutions.'
 
-type UseStrapiSeoInput = {
-    seo?: MaybeRef<StrapiSeo | null>
-    title?: MaybeRef<string | null>
-    description?: MaybeRef<string | null>
-    image?: MaybeRef<string | null>
-    siteName?: string
-    fallbackDescription?: MaybeRef<string | null>
+const localeToOg = (locale: string): string => {
+  switch (locale) {
+    case 'fr':
+      return 'fr_FR'
+    case 'es':
+      return 'es_ES'
+    default:
+      return 'en_US'
+  }
 }
 
-export const useStrapiSeo = (input: UseStrapiSeoInput) => {
-    const route = useRoute()
-    const config = useRuntimeConfig()
-    const siteUrl = (config.public.backend || '').replace(/\/$/, '')
+export const useSeo = (seo?: StrapiSeo | null): void => {
+  const { locale } = useI18n()
+  const runtimeConfig = useRuntimeConfig()
+  const route = useRoute()
+  const siteUrl = runtimeConfig.public.siteUrl || 'https://furitechsl.com/'
 
-    const title = computed(() =>
-        unref(input.seo)?.Meta_title?.trim() ||
-        unref(input.title)?.trim() ||
-        'Furitech'
-    )
+  const metaTitle = seo?.meta_title ?? DEFAULT_TITLE
+  const metaDescription = seo?.meta_description ?? DEFAULT_DESCRIPTION
+  const ogImage = seo?.og_image
+    ? getStrapiMedia(seo.og_image)
+    : `${siteUrl.replace(/\/$/, '')}/og-image.png`
+  const canonical = `${siteUrl.replace(/\/$/, '')}${route.path}`
+  const jsonLdScript = seo?.json_ld
+    ? [
+        {
+          type: 'application/ld+json',
+          innerHTML: JSON.stringify(seo.json_ld),
+          async: false,
+        },
+      ]
+    : []
 
-    const description = computed(() =>
-        unref(input.seo)?.Meta_description?.trim() ||
-        unref(input.description)?.trim() ||
-        unref(input.fallbackDescription)?.trim() ||
-        ''
-    )
+  const googleSiteVerification = runtimeConfig.public.googleSiteVerification as string
 
-    const ogTitle = computed(() =>
-        unref(input.seo)?.OG_title?.trim() || title.value
-    )
+  const meta: Record<string, string>[] = [
+    { name: 'description', content: metaDescription },
+    { property: 'og:title', content: metaTitle },
+    { property: 'og:description', content: metaDescription },
+    { property: 'og:image', content: ogImage },
+    { property: 'og:url', content: canonical },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:locale', content: localeToOg(locale.value) },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: metaTitle },
+    { name: 'twitter:description', content: metaDescription },
+    { name: 'twitter:image', content: ogImage },
+  ]
 
-    const ogDescription = computed(() =>
-        unref(input.seo)?.OG_description?.trim() || description.value
-    )
+  if (googleSiteVerification) {
+    meta.push({ name: 'google-site-verification', content: googleSiteVerification })
+  }
 
-    const ogImage = computed(() =>
-        unref(input.seo)?.OG_image?.url || unref(input.image) || ''
-    )
-
-    const keywords = computed(() =>
-        unref(input.seo)?.Meta_keywords?.trim() || ''
-    )
-
-    useHead(() => ({
-        title: title.value,
-        meta: [
-            { name: 'description', content: description.value },
-            { name: 'keywords', content: keywords.value },
-            { property: 'og:title', content: ogTitle.value },
-            { property: 'og:description', content: ogDescription.value },
-            { property: 'og:type', content: 'website' },
-            { property: 'og:site_name', content: input.siteName || 'Furitech' },
-            { property: 'og:url', content: `${siteUrl}${route.fullPath}` },
-            { property: 'og:image', content: ogImage.value || undefined },
-        ]
-    }))
+  // Centralize all meta tags so every page can share the same SEO rules.
+  useHead({
+    title: metaTitle,
+    htmlAttrs: {
+      lang: locale.value,
+    },
+    meta,
+    script: jsonLdScript,
+    link: [{ rel: 'canonical', href: canonical }],
+  })
 }

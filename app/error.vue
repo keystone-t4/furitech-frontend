@@ -1,63 +1,53 @@
 <script setup lang="ts">
 import type { NuxtError } from '#app'
+import { useStrapi } from '~/composable/useStrapi'
+import type { ErrorPageType } from '#shared/types/strapi-types'
+import { useLocaleContent } from '~/composable/useContent'
 
-const props = defineProps<{ error: NuxtError }>()
+const props = defineProps<{
+  error: NuxtError
+}>()
 
-const config = useRuntimeConfig()
+const strapi = useStrapi()
+const content = useLocaleContent()
 const { locale } = useI18n()
 
-const baseStrapiUrl = computed(() =>
-    (config.public.backend || '').replace(/\/$/, '')
+const is404 = computed(() => props.error.status === 404)
+
+const { data: error_page } = await useAsyncData<ErrorPageType>(
+  () => `error-page-${locale.value}`,
+  async () =>
+    import.meta.server ? await strapi.getErrorPage(locale.value) : content.value.error_page,
 )
-
-function errorPageRequestUrl(locale: string) {
-  const params = new URLSearchParams()
-  params.set('locale', locale)
-  params.set('populate', '*')
-
-  return `${baseStrapiUrl.value}/api/error-page?${params.toString()}`
-}
-
-const { data: errorPage } = await useAsyncData(
-    () => `error-page:${locale.value}`,
-    () => $fetch(errorPageRequestUrl(locale.value)),
-    { watch: [locale] }
-)
-
-const errorData = computed(() => errorPage.value?.data)
-
-const is404 = computed(() => props.error.statusCode === 404)
 
 const errorText = computed(() => {
-  if (is404.value && errorData.value?.Page_not_found_text) {
-    return errorData.value.Page_not_found_text
+  if (is404.value && error_page.value?.page_not_found_text) {
+    return error_page.value.page_not_found_text
   }
-  return props.error.statusMessage
+  return props.error.statusText
 })
 
-const buttonText = computed(() => {
-  if (is404.value && errorData.value?.Main_page_button_text) {
-    return errorData.value.Main_page_button_text
-  }
-  return 'Go back home'
+const mainLocaleRoute = computed(() => {
+  return locale.value === 'en' ? '/' : `/${locale.value}`
 })
 </script>
 
 <template>
   <NuxtLayout name="default">
-    <div class="error-layout block">
+    <Container class="error-layout">
       <h1 class="error-layout__title">
-        {{ error.statusCode }}
+        {{ error.status }}
       </h1>
 
       <p class="error-layout__paragraph paragraph">
         {{ errorText }}
       </p>
-
-      <NuxtLink class="button" to="/">
-        {{ buttonText }}
-      </NuxtLink>
-    </div>
+      <Button
+        v-if="error_page?.main_page_button_text"
+        :text="error_page.main_page_button_text"
+        :path="mainLocaleRoute"
+      />
+    </Container>
   </NuxtLayout>
 </template>
 
