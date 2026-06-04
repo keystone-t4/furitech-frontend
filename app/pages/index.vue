@@ -9,13 +9,15 @@ import { useSeo } from '~/composable/useStrapiSeo'
 const strapi = useStrapi()
 const localeContent = useLocaleContent()
 const { locale } = useI18n()
+//todo: выглядит как излишняя обертка, проверить...
+const localeKey = computed(() => locale.value)
 
 const content = computed(() => localeContent.value)
 
 const { data: home_page } = await useAsyncData<HomePageType>(
-  () => `homepage-${locale.value}`,
+  () => `homepage-${localeKey.value}`,
   async () =>
-    import.meta.server ? await strapi.getHomePage(locale.value) : content.value.home_page,
+    import.meta.server ? await strapi.getHomePage(localeKey.value) : content.value.home_page,
 )
 
 const hero_image_url = computed(() => home_page.value?.hero_image?.url ?? null)
