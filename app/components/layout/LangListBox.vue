@@ -38,15 +38,6 @@ watch(
   },
 )
 
-watch(
-  () => selectedCode.value,
-  async (newCode, oldCode) => {
-    if (!newCode || newCode === oldCode) return
-    if (newCode === locale.value) return
-    await navigateTo(switchLocalePath(newCode))
-  },
-)
-
 const selectedLabel = computed(() => {
   return (
     localeOptions.value.find((o) => o.code === selectedCode.value)?.label ??
