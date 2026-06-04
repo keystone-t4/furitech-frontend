@@ -26,6 +26,7 @@ const localeOptions = computed(() => {
   return list.map((l) => ({
     code: l.code,
     label: localeLabel(l.code, l.name),
+    href: switchLocalePath(l.code),
   }))
 })
 const selectedCode = ref<LocaleCode>(locale.value as LocaleCode)
@@ -81,7 +82,9 @@ const selectedLabel = computed(() => {
             as="template"
           >
             <li :class="['locale__option', active && 'is-active', selected && 'is-selected']">
-              <span class="locale__option-text">{{ opt.label }}</span>
+              <a :href="opt.href" class="locale__option-text">
+                {{ opt.label }}
+              </a>
             </li>
           </ListboxOption>
         </ListboxOptions>
@@ -200,6 +203,8 @@ const selectedLabel = computed(() => {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    color: var(--text-dark);
+    text-decoration: none;
   }
 }
 
