@@ -71,6 +71,11 @@ export default defineNuxtConfig({
     },
   },
 
+  site: {
+    url: process.env.NUXT_PUBLIC_SITE_URL,
+    name: 'Furitech',
+  },
+
   i18n: {
     baseUrl: process.env.NUXT_PUBLIC_SITE_URL,
     defaultLocale: 'en',
@@ -85,6 +90,10 @@ export default defineNuxtConfig({
       { code: 'fr', name: 'French', file: 'fr.json', language: 'fr-FR' },
       { code: 'es', name: 'Spanish', file: 'es.json', language: 'es-ES' },
     ],
+    detectBrowserLanguage: false,
+    strategy: 'prefix_except_default',
+    langDir: '../i18n/locales',
+    vueI18n: './i18n.config.ts',
   },
   sitemap: {
     autoI18n: true,
