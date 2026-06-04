@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue'
+import { computed } from 'vue'
 import {
   Listbox,
   ListboxButton,
@@ -7,53 +7,45 @@ import {
   ListboxOptions,
   ListboxOption,
 } from '@headlessui/vue'
+import type { ComputedRef } from 'vue'
 
 type LocaleCode = 'en' | 'fr' | 'es'
 
-type LocaleLike = { code: LocaleCode; name?: string }
+interface LocaleOption {
+  code: string
+  label: string
+  href: string
+}
 
 const { locale, locales, t } = useI18n()
 const switchLocalePath = useSwitchLocalePath()
 
-const localeLabel = (code: LocaleCode, fallback?: string) => {
-  const key = `locales.${code}`
-  const translated = t(key)
-  return translated === key ? (fallback ?? code) : translated
-}
-
-const localeOptions = computed(() => {
-  const list = (locales.value ?? []) as LocaleLike[]
-  return list.map((l) => ({
-    code: l.code,
-    label: localeLabel(l.code, l.name),
-    href: switchLocalePath(l.code),
-  }))
+const localeOptions: ComputedRef<LocaleOption[]> = computed(() => {
+  const list = locales.value ?? []
+  return list.map((l) => {
+    const key = `locales.${l.code}`
+    const label = t(key)
+    return {
+      code: l.code as string,
+      label: label === key ? (l.name ?? l.code) : label,
+      href: switchLocalePath(l.code as LocaleCode) || '/',
+    }
+  })
 })
-const selectedCode = ref<LocaleCode>(locale.value as LocaleCode)
-
-watch(
-  () => locale.value,
-  (newLocale) => {
-    selectedCode.value = newLocale as LocaleCode
-  },
-)
 
 const selectedLabel = computed(() => {
-  return (
-    localeOptions.value.find((o) => o.code === selectedCode.value)?.label ??
-    localeLabel(selectedCode.value)
-  )
+  const option = localeOptions.value.find((o) => o.code === locale.value)
+  return option?.label ?? locale.value
 })
 </script>
 
 <template>
   <div class="locale-switch">
-    <Listbox v-model="selectedCode" as="div" class="locale">
+    <Listbox as="div" class="locale" :model-value="locale">
       <ListboxLabel class="sr-only">Language</ListboxLabel>
       <ListboxButton class="locale__button">
         <span class="locale__button-text">{{ selectedLabel }}</span>
-
-        <svg id="arrow" class="locale__arrow" width="8" height="10" viewBox="0 0 8 10">
+        <svg class="locale__arrow" width="8" height="10" viewBox="0 0 8 10">
           <path
             d="M3.99991 1.5L3.99991 8.19818M7.09138 5.62195L4.36425 8.34909C4.16303 8.5503 3.8368 8.5503 3.63558 8.34909L0.908447 5.62195"
             stroke="currentColor"
@@ -67,16 +59,17 @@ const selectedLabel = computed(() => {
         <ListboxOptions class="locale__options">
           <ListboxOption
             v-for="opt in localeOptions"
-            :key="opt.code"
             v-slot="{ active, selected }"
+            :key="opt.code"
             :value="opt.code"
             as="template"
           >
-            <li :class="['locale__option', active && 'is-active', selected && 'is-selected']">
-              <a :href="opt.href" class="locale__option-text">
-                {{ opt.label }}
-              </a>
-            </li>
+            <a
+              :href="opt.href"
+              :class="['locale__option', active && 'is-active', selected && 'is-selected']"
+            >
+              {{ opt.label }}
+            </a>
           </ListboxOption>
         </ListboxOptions>
       </transition>
@@ -118,6 +111,8 @@ const selectedLabel = computed(() => {
     font-weight: 700;
     font-size: 1rem;
     line-height: 1;
+    transition: background 0.3s;
+
     @media (max-width: 636px) {
       padding: 8px 10px;
     }
@@ -126,12 +121,9 @@ const selectedLabel = computed(() => {
       background: rgba(141, 141, 141, 0.18);
     }
 
-    &:focus {
-      outline: none;
-    }
-
     &:focus-visible {
       box-shadow: 0 0 0 2px var(--focus-visible-color);
+      outline: none;
     }
   }
 
@@ -145,6 +137,18 @@ const selectedLabel = computed(() => {
     color: var(--text-dark);
   }
 
+  &__arrow {
+    width: 8px;
+    height: 10px;
+    color: var(--text-dark);
+    stroke: var(--text-dark);
+    transition: transform 0.5s;
+  }
+
+  &__button[aria-expanded='true'] .locale__arrow {
+    transform: scale(1, -1);
+  }
+
   &__options {
     position: absolute;
     width: var(--locale-width);
@@ -153,11 +157,8 @@ const selectedLabel = computed(() => {
     padding: 6px;
     background: #fff;
     z-index: 50;
-
     visibility: hidden;
     opacity: 0;
-    transform: translateY(0);
-
     transition:
       opacity 0.3s,
       transform 0.3s,
@@ -168,19 +169,25 @@ const selectedLabel = computed(() => {
     }
   }
 
+  &__button[aria-expanded='true'] ~ &__options {
+    visibility: visible;
+    opacity: 1;
+  }
+
   &__option {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    padding: 6px 6px;
+    display: block;
+    padding: 6px;
     cursor: pointer;
     user-select: none;
+    color: var(--text-dark);
+    text-decoration: none;
+    transition: background 0.2s;
 
     @media (max-width: 636px) {
-      padding: 4px 4px;
+      padding: 4px;
     }
 
+    &:hover,
     &.is-active {
       background: rgba(141, 141, 141, 0.18);
     }
@@ -189,31 +196,5 @@ const selectedLabel = computed(() => {
       font-weight: 800;
     }
   }
-
-  &__option-text {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    color: var(--text-dark);
-    text-decoration: none;
-  }
-}
-
-.locale__button[aria-expanded='true'] + .locale__options {
-  visibility: visible;
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.locale__arrow {
-  width: 8px;
-  height: 10px;
-  transition: transform 0.5s;
-  color: var(--text-dark);
-  stroke: var(--text-dark);
-}
-
-.locale__button[aria-expanded='true'] .locale__arrow {
-  transform: scale(1, -1);
 }
 </style>
