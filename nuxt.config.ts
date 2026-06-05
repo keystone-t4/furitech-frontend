@@ -30,6 +30,20 @@ export default defineNuxtConfig({
           crossorigin: '',
         },
       ],
+      script: [
+        {
+          async: true,
+          src: 'https://www.googletagmanager.com/gtag/js?id=G-DLF1BH9YT7'
+        },
+        {
+          innerHTML: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-DLF1BH9YT7');
+          `
+        }
+      ]
     },
   },
 
