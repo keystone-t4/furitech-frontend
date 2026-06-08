@@ -2,3 +2,4 @@
 
 npm run lint || exit 1
 npm run format || exit 1
+git add .
