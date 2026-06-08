@@ -11,7 +11,8 @@
     "setup:env": "node scripts/init-env.js",
     "lint": "eslint .",
     "format": "prettier . --write",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "prepare": "git config core.hooksPath .git-hooks || echo Not in git repo"
   },
   "dependencies": {
     "@headlessui/vue": "^1.7.23",
