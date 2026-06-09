@@ -3,19 +3,19 @@ defineProps<{
   title: string
   subTitle: string | null
   heroImg: string | null
+  heroImgMobile: string | null
 }>()
 </script>
 
 <template>
   <section class="hero">
-    <NuxtImg
-      v-if="heroImg"
-      :src="heroImg"
-      alt=""
-      class="hero__bg"
-      fetchpriority="high"
-      loading="eager"
-    />
+    <picture v-if="heroImg">
+      <source v-if="heroImgMobile" media="(max-width: 480px)" :srcset="heroImgMobile" />
+
+      <source :srcset="heroImg" />
+
+      <img :src="heroImg" alt="" class="hero__bg" fetchpriority="high" loading="eager" />
+    </picture>
     <Container>
       <div class="hero__text">
         <h1 v-if="title" class="hero__title">{{ title }}</h1>

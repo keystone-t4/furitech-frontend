@@ -51,6 +51,7 @@ export type BlockTextContent = {
   title: string
   text_content: string
   image: StrapiMedia | null
+  image_mobile: StrapiMedia | null
 }
 
 export type BlockInnerItem = {
@@ -58,6 +59,7 @@ export type BlockInnerItem = {
   title: string
   text_content: string
   image: StrapiMedia | null
+  image_mobile: StrapiMedia | null
 }
 
 export type BlockImageListContent = {
@@ -106,6 +108,7 @@ export interface HomePageType extends StrapiMeta {
   title: string | null
   sub_title: string | null
   hero_image: StrapiMedia | null
+  hero_image_mobile: StrapiMedia | null
   block: HomePageBlock[] | null
   seo: StrapiSeo | null
 }

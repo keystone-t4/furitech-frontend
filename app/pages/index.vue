@@ -18,8 +18,6 @@ const { data: home_page } = await useAsyncData<HomePageType>(
     import.meta.server ? await strapi.getHomePage(locale.value) : content.value.home_page,
 )
 
-const hero_image_url = computed(() => home_page.value?.hero_image?.url ?? null)
-
 const isTextBlock = (block: HomePageBlock): block is BlockTextContent =>
   block.__component === 'blocks.text-content'
 
@@ -40,7 +38,8 @@ useSeo(home_page.value?.seo)
       v-if="home_page?.title"
       :title="home_page.title"
       :sub-title="home_page.sub_title"
-      :hero-img="hero_image_url"
+      :hero-img="home_page.hero_image ? home_page.hero_image.url : null"
+      :hero-img-mobile="home_page.hero_image_mobile ? home_page.hero_image_mobile.url : null"
     />
 
     <template v-for="block in blocks" :key="`${block.__component}-${block.id}`">

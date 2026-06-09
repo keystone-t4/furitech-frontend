@@ -68,13 +68,15 @@
       "updatedAt": "2026-05-07T11:21:34.266Z",
       "publishedAt": "2026-04-27T15:14:01.623Z"
     },
+    "hero_image_mobile": null,
     "block": [
       {
         "__component": "blocks.text-content",
         "id": 207,
         "title": "BIENVENIDOS A FURITECH",
         "text_content": "un proveedor dinámico especializado en tres sectores clave: betún y productos derivados, agricultura y fertilizantes minerales. Desde nuestra base en Melilla, España, **conectamos diversos mercados con productos de alta calidad adaptados a las necesidades específicas de nuestros clientes.**\n\n**El betún y sus derivados** son la base de proyectos de infraestructura duraderos en todo el mundo, desde carreteras hasta techados. **Nuestra división agrícola** ofrece productos básicos esenciales como maíz, soja y nueces de Brasil, apoyando la producción alimentaria y las cadenas de suministro en distintas regiones. Además, nuestros **fertilizantes minerales** promueven un crecimiento agrícola sostenible al aportar nutrientes vitales para los cultivos.\n\nEn Furitech, nuestra amplia experiencia se une en un objetivo común: calidad, fiabilidad y satisfacción del cliente. Ya sea construyendo la infraestru\nctura del futuro, impulsando la cadena de suministro de alimentos o apoyando la agricultura sostenible con nuestros fertilizantes, **Furitech es su socio de confianza en cada paso.**\n",
-        "image": null
+        "image": null,
+        "image_mobile": null
       },
       {
         "__component": "blocks.image-list-content",
@@ -87,14 +89,16 @@
         "id": 208,
         "title": "POR QUÉ ELEGIR FURITECH",
         "text_content": "•\t**Compromiso con la Calidad**\nSuministramos productos que cumplen los más altos estándares de la industria, garantizando fiabilidad y rendimiento.\n•\t**Expertos en Logística**\nNuestro equipo asegura una entrega eficiente en su ubicación, sin importar los desafíos.\n•\t**Soluciones Centradas en el Cliente**\nAdaptamos nuestra oferta a sus necesidades específicas, construyendo relaciones duraderas.\n",
-        "image": null
+        "image": null,
+        "image_mobile": null
       },
       {
         "__component": "blocks.text-content",
         "id": 209,
         "title": "Permítanos demostrarle nuestro compromiso.",
         "text_content": "Desde la garantía de calidad hasta una logística fiable y un servicio personalizado: descubra cómo nuestro enfoque puede servir a su proyecto. Póngase en contacto con nosotros.",
-        "image": null
+        "image": null,
+        "image_mobile": null
       },
       {
         "__component": "blocks.map-content",
@@ -107,7 +111,7 @@
     "seo": {
       "meta_title": "Furitech",
       "meta_description": "Proveedor global de betún, productos agrícolas y fertilizantes minerales. Soluciones logísticas confiables y adaptadas a las necesidades de cada cliente.",
-      "meta_keywords": "betún, productos agrícolas, fertilizantes minerales, logística, comercio internacional",
+      "meta_keywords": null,
       "og_title": "Furitech",
       "og_description": "Proveedor global de betún, productos agrícolas y fertilizantes minerales. Soluciones logísticas confiables y adaptadas a las necesidades de cada cliente.",
       "og_image": null
