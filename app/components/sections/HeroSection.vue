@@ -8,7 +8,7 @@ defineProps<{
 
 <template>
   <section class="hero">
-    <img
+    <NuxtImg
       v-if="heroImg"
       :src="heroImg"
       alt=""

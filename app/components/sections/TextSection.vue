@@ -21,7 +21,7 @@ defineProps<{
         />
         <!--eslint-enable-->
       </div>
-      <img v-if="block.image?.url" class="text-content__img" :src="block.image.url" alt="#" />
+      <NuxtImg v-if="block.image?.url" class="text-content__img" :src="block.image.url" alt="#" />
     </Container>
   </section>
 </template>
