@@ -1,6 +1,6 @@
 {
   "home_page": {
-    "id": 81,
+    "id": 84,
     "title": "EXCELLENCE ACROSS INDUSTRIES:",
     "sub_title": null,
     "hero_image": {
@@ -68,37 +68,105 @@
       "updatedAt": "2026-05-07T11:21:34.266Z",
       "publishedAt": "2026-04-27T15:14:01.623Z"
     },
+    "hero_image_mobile": {
+      "id": 20,
+      "name": "main-background-mobile-compressed.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "width": 480,
+      "height": 1010,
+      "formats": {
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_main_background_mobile_compressed_5949af062b.jpg",
+          "hash": "thumbnail_main_background_mobile_compressed_5949af062b",
+          "mime": "image/jpeg",
+          "name": "thumbnail_main-background-mobile-compressed.jpg",
+          "path": null,
+          "size": 2.82,
+          "width": 74,
+          "height": 156
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_main_background_mobile_compressed_5949af062b.jpg",
+          "hash": "small_main_background_mobile_compressed_5949af062b",
+          "mime": "image/jpeg",
+          "name": "small_main-background-mobile-compressed.jpg",
+          "path": null,
+          "size": 20.8,
+          "width": 238,
+          "height": 500
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_main_background_mobile_compressed_5949af062b.jpg",
+          "hash": "medium_main_background_mobile_compressed_5949af062b",
+          "mime": "image/jpeg",
+          "name": "medium_main-background-mobile-compressed.jpg",
+          "path": null,
+          "size": 41.88,
+          "width": 356,
+          "height": 750
+        },
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_main_background_mobile_compressed_5949af062b.jpg",
+          "hash": "large_main_background_mobile_compressed_5949af062b",
+          "mime": "image/jpeg",
+          "name": "large_main-background-mobile-compressed.jpg",
+          "path": null,
+          "size": 66.05,
+          "width": 475,
+          "height": 1000
+        }
+      },
+      "hash": "main_background_mobile_compressed_5949af062b",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 62.81,
+      "url": "/uploads/main_background_mobile_compressed_5949af062b.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-06-09T13:47:21.918Z",
+      "updatedAt": "2026-06-09T13:47:21.918Z",
+      "publishedAt": "2026-06-09T13:47:21.919Z"
+    },
     "block": [
       {
         "__component": "blocks.text-content",
-        "id": 225,
+        "id": 234,
         "title": "WELCOME TO FURITECH",
         "text_content": "A dynamic supplier specializing in three key industries: bitumen and bitumen products, agriculture, and mineral fertilizers. From our base in Melilla, Spain, **we connect diverse markets with high-quality products tailored to meet the unique needs of our clients**.  \n\n**Bitumen and bitumen products** provide the foundation for durable infrastructure projects worldwide, from roads to roofing. **Our agriculture division** offers essential commodities such as corn, soy, and Brazil nuts, supporting food production and supply chains across regions. Additionally, our **mineral fertilizers** promote sustainable agricultural growth by delivering vital nutrients for crops.  \n\nAt Furitech, our diverse expertise is united by a common goal: quality, reliability, and customer satisfaction. Whether it’s building the infrastructure of the future, advancing the food supply chain, or supporting sustainable agriculture with our fertilizers, **Furitech is your trusted partner every step of the way**.",
-        "image": null
+        "image": null,
+        "image_mobile": null
       },
       {
         "__component": "blocks.image-list-content",
-        "id": 65,
+        "id": 68,
         "title": "OUR PRODUCTS",
         "items": []
       },
       {
         "__component": "blocks.text-content",
-        "id": 226,
+        "id": 235,
         "title": "WHY CHOOSE FURITECH",
         "text_content": "-\t**Commitment to Quality**\nWe deliver products that meet the highest industry standards, ensuring reliability and performance.\n\n-\t**Experts in Logistics**\nOur team ensures seamless delivery to your location, no matter the challenge.\n\n-\t**Customer-Focused Solutions**\nWe tailor our offerings to meet your unique needs, building partnerships that last.\n",
-        "image": null
+        "image": null,
+        "image_mobile": null
       },
       {
         "__component": "blocks.text-content",
-        "id": 227,
+        "id": 236,
         "title": "Let us demonstrate our commitment.",
         "text_content": "From quality assurance to reliable logistics and customized service — see how our approach serves your project. Get in touch.",
-        "image": null
+        "image": null,
+        "image_mobile": null
       },
       {
         "__component": "blocks.map-content",
-        "id": 51,
+        "id": 54,
         "title": "CONTACTS",
         "text_content": "+34 628 219 736\nDaniel Flores, Account Manager\n\nGeneral Marina 15, 52001, Melilla, Melilla, Spain\n",
         "map_url": "https://www.google.com/maps?q=C.%20Gral.%20Marina,%2015,%2052001%20Melilla,%20Spain&output=embed"
@@ -107,14 +175,14 @@
     "seo": {
       "meta_title": "Furitech",
       "meta_description": "Global supplier of bitumen, agricultural products, and mineral fertilizers. Reliable logistics and tailored solutions.",
-      "meta_keywords": "bitumen, agricultural products, minearal fetilizers, logistics",
+      "meta_keywords": null,
       "og_title": "Furitech",
       "og_description": "Global supplier of bitumen, agricultural products, and mineral fertilizers. Reliable logistics and tailored solutions.",
       "og_image": null
     },
     "createdAt": "2026-01-30T09:16:44.233Z",
-    "updatedAt": "2026-05-08T15:00:05.682Z",
-    "publishedAt": "2026-05-08T15:00:05.700Z",
+    "updatedAt": "2026-06-09T13:47:29.464Z",
+    "publishedAt": "2026-06-09T13:47:29.488Z",
     "locale": "en"
   },
   "footer": {

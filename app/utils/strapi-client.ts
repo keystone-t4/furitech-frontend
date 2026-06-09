@@ -39,18 +39,19 @@ export const createStrapiApi = (options: StrapiClientOptions) => {
         ...(locale ? { locale } : {}),
         populate: {
           hero_image: true,
+          hero_image_mobile: true,
           seo: { populate: '*' },
           block: {
             on: {
               'blocks.image-list-content': {
                 populate: {
                   items: {
-                    populate: { image: true },
+                    populate: { image: true, image_mobile: true },
                   },
                 },
               },
               'blocks.text-content': {
-                populate: { image: true },
+                populate: { image: true, image_mobile: true },
               },
               'blocks.map-content': true,
             },

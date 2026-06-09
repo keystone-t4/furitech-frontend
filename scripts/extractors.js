@@ -100,6 +100,7 @@ function extractBlock(block) {
         title: block.title ?? '',
         text_content: block.text_content ?? '',
         image: extractMedia(block.image),
+        image_mobile: extractMedia(block.image_mobile),
       }
 
     case 'blocks.image-list-content':
@@ -113,6 +114,7 @@ function extractBlock(block) {
               title: item.title ?? '',
               text_content: item.text_content ?? '',
               image: extractMedia(item.image),
+              image_mobile: extractMedia(item.image_mobile),
             }))
           : [],
       }
@@ -168,6 +170,7 @@ export function extractHomePage(raw) {
     sub_title: raw.sub_title ?? null,
 
     hero_image: extractMedia(raw.hero_image),
+    hero_image_mobile: extractMedia(raw.hero_image_mobile),
 
     block: Array.isArray(raw.block) ? raw.block.map(extractBlock).filter(Boolean) : null,
 

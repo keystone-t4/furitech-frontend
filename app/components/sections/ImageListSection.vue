@@ -19,9 +19,11 @@ defineProps<{
           :key="item.id"
           class="image-list-content__item item"
           :style="
-            item.image?.url
+            item.image?.url || item.image_mobile?.url
               ? {
-                  '--bg-image': `url(${item.image.url})`,
+                  '--bg-image': item.image?.url ? `url(${item.image.url})` : 'none',
+
+                  '--bg-image-mobile': `url(${item.image_mobile?.url || item.image?.url})`,
                 }
               : undefined
           "
@@ -87,6 +89,9 @@ defineProps<{
     background-position: center;
     background-size: cover;
     z-index: 0;
+    @media (max-width: 480px) {
+      background-image: var(--bg-image-mobile);
+    }
   }
 
   &__inner {
