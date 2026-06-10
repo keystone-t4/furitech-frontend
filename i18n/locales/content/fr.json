@@ -1,6 +1,6 @@
 {
   "home_page": {
-    "id": 79,
+    "id": 85,
     "title": "EXCELLENCE DANS TOUTES LES INDUSTRIES",
     "sub_title": null,
     "hero_image": {
@@ -68,11 +68,75 @@
       "updatedAt": "2026-05-07T11:21:34.266Z",
       "publishedAt": "2026-04-27T15:14:01.623Z"
     },
-    "hero_image_mobile": null,
+    "hero_image_mobile": {
+      "id": 20,
+      "name": "main-background-mobile-compressed.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "width": 480,
+      "height": 1010,
+      "formats": {
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_main_background_mobile_compressed_5949af062b.jpg",
+          "hash": "thumbnail_main_background_mobile_compressed_5949af062b",
+          "mime": "image/jpeg",
+          "name": "thumbnail_main-background-mobile-compressed.jpg",
+          "path": null,
+          "size": 2.82,
+          "width": 74,
+          "height": 156
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_main_background_mobile_compressed_5949af062b.jpg",
+          "hash": "small_main_background_mobile_compressed_5949af062b",
+          "mime": "image/jpeg",
+          "name": "small_main-background-mobile-compressed.jpg",
+          "path": null,
+          "size": 20.8,
+          "width": 238,
+          "height": 500
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_main_background_mobile_compressed_5949af062b.jpg",
+          "hash": "medium_main_background_mobile_compressed_5949af062b",
+          "mime": "image/jpeg",
+          "name": "medium_main-background-mobile-compressed.jpg",
+          "path": null,
+          "size": 41.88,
+          "width": 356,
+          "height": 750
+        },
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_main_background_mobile_compressed_5949af062b.jpg",
+          "hash": "large_main_background_mobile_compressed_5949af062b",
+          "mime": "image/jpeg",
+          "name": "large_main-background-mobile-compressed.jpg",
+          "path": null,
+          "size": 66.05,
+          "width": 475,
+          "height": 1000
+        }
+      },
+      "hash": "main_background_mobile_compressed_5949af062b",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 62.81,
+      "url": "/uploads/main_background_mobile_compressed_5949af062b.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-06-09T13:47:21.918Z",
+      "updatedAt": "2026-06-09T13:47:21.918Z",
+      "publishedAt": "2026-06-09T13:47:21.919Z"
+    },
     "block": [
       {
         "__component": "blocks.text-content",
-        "id": 219,
+        "id": 237,
         "title": "BIENVENUE CHEZ FURITECH",
         "text_content": "un fournisseur dynamique spécialisé dans trois secteurs clés : le bitume et ses produits dérivés, l’agriculture et les fertilisants minéraux. Depuis notre base de Melilla, en Espagne, **nous connectons divers marchés avec des produits de haute qualité, adaptés aux besoins spécifiques de nos clients**.\n\n**Le bitume et ses dérivés** constituent la base de projets d’infrastructure durables dans le monde entier, des routes aux toitures. Notre **division agricole** offre des produits de base essentiels tels que le maïs, le soja et les noix du Brésil, soutenant la production alimentaire et les chaînes d’approvisionnement de différentes régions. De plus, nos** fertilisants minéraux** favorisent une croissance agricole durable en apportant des nutriments essentiels aux cultures.\n\nChez Furitech, notre expertise diversifiée est unie par un objectif commun : la qualité, la fiabilité et la satisfaction client. Qu’il s’agisse de construire les infrastructures de demain, de faire progresser la chaîne d’approvisionnement alimentaire ou de soutenir une agriculture durable avec nos fertilisants, **Furitech est votre partenaire de confiance à chaque étape**.\n",
         "image": null,
@@ -80,13 +144,13 @@
       },
       {
         "__component": "blocks.image-list-content",
-        "id": 63,
+        "id": 69,
         "title": "NOS PRODUITS",
         "items": []
       },
       {
         "__component": "blocks.text-content",
-        "id": 220,
+        "id": 238,
         "title": "POURQUOI CHOISIR FURITECH",
         "text_content": "•\t**Engagement Qualité**\nNous fournissons des produits conformes aux normes industrielles les plus élevées, garantissant fiabilité et performance.\n\n•\t**Experts en Logistique**\nNotre équipe assure une livraison efficace à votre emplacement, quels que soient les défis.\n\n•\t**Solutions Axées sur le Client**\nNous adaptons notre offre à vos besoins spécifiques, pour construire des relations durables.",
         "image": null,
@@ -94,7 +158,7 @@
       },
       {
         "__component": "blocks.text-content",
-        "id": 221,
+        "id": 239,
         "title": "Permettez-nous de vous démontrer notre engagement.",
         "text_content": "De la garantie de qualité à une logistique fiable, en passant par un service personnalisé: découvrez comment notre approche peut servir votre projet. Contactez-nous.",
         "image": null,
@@ -102,7 +166,7 @@
       },
       {
         "__component": "blocks.map-content",
-        "id": 49,
+        "id": 55,
         "title": "CONTACT",
         "text_content": "+34 628 219 736\nDaniel Flores, Responsable Commercial\n\nGeneral Marina 15, 52001, Melilla, Melilla, Espagne\n",
         "map_url": "https://www.google.com/maps?q=C.%20Gral.%20Marina,%2015,%2052001%20Melilla,%20Spain&output=embed"
@@ -117,8 +181,8 @@
       "og_image": null
     },
     "createdAt": "2026-01-30T09:17:23.054Z",
-    "updatedAt": "2026-05-07T11:25:39.012Z",
-    "publishedAt": "2026-05-07T11:25:39.025Z",
+    "updatedAt": "2026-06-09T14:43:54.802Z",
+    "publishedAt": "2026-06-09T14:43:54.819Z",
     "locale": "fr"
   },
   "footer": {
