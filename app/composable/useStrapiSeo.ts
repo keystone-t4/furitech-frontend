@@ -23,9 +23,7 @@ export const useSeo = (seo?: StrapiSeo | null): void => {
 
   const metaTitle = seo?.meta_title ?? DEFAULT_TITLE
   const metaDescription = seo?.meta_description ?? DEFAULT_DESCRIPTION
-  const ogImage = seo?.og_image
-    ? getStrapiMedia(seo.og_image)
-    : `${siteUrl.replace(/\/$/, '')}/og-image.png`
+  const ogImage = seo?.og_image ? seo.og_image.url : `${siteUrl.replace(/\/$/, '')}/og-img.png`
   const canonical = `${siteUrl.replace(/\/$/, '')}${route.path}`
   const jsonLdScript = seo?.json_ld
     ? [

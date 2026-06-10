@@ -4,8 +4,6 @@ import { useLocaleContent } from '~/composable/useContent'
 import type { HomePageType } from '#shared/types/strapi-types'
 import { useSeo } from '~/composable/useStrapiSeo'
 
-//todo: почему при при внесении правки в одном файле - преттиер правит каким то боком другие, каждый раз, при том визуально изменений не видно, но git это индексирует
-
 const strapi = useStrapi()
 const localeContent = useLocaleContent()
 const { locale } = useI18n()
